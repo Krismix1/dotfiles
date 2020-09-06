@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# ====================================
+# Install packages
+# ====================================
+
+sudo pacman -S --noconfirm --needed \
+                alacritty \
+                curl \
+                firefox-developer-edition \
+                git \
+                i3-gaps \
+                neovim \
+                openssh \
+                python3 \
+                rofi \
+                udisks2 \
+                xorg-server \
+                xorg-xinit \
+                zsh
+
+if pacman -Qs yay > /dev/null ; then
+    echo "Yay is already installed, moving on..."
+else
+    pushd /tmp
+    rm -rf yay
+    git clone https://aur.archlinux.org/yay.git
+    pushd yay
+    makepkg -si --noconfirm
+    popd
+    rm -rf yay
+    popd
+fi
+
+yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                polybar \
+                spicetify-cli \
+                spotify
+
+# Make pacman display colored output
+sudo sed -i 's/#Color/Color\nILoveCandy/g' /etc/pacman.conf
+
+echo "=============="
+echo "==== DONE ===="
+echo "=============="
+echo "$ chsh -s /bin/zsh"
+echo "$ startx"
+echo "$ feh --bg-fill ~/.config/wallpaper.png"
