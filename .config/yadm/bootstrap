@@ -40,6 +40,15 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 spicetify-cli \
                 spotify
 
+
+# ====================================
+# Polybar font
+# ====================================
+
+mkdir -p ~/.local/share/fonts
+curl https://raw.githubusercontent.com/adi1090x/polybar-themes/master/polybar-8/fonts/icomoon-feather.ttf > ~/.local/share/fonts/icomoon-feather.ttf
+fc-cache -vf ~/.local/share/fonts/
+
 # Make pacman display colored output
 sudo sed -i 's/#Color/Color\nILoveCandy/g' /etc/pacman.conf
 
