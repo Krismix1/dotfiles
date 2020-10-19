@@ -1,0 +1,7 @@
+#!/bin/bash
+# a rofi prompt yes/no script
+# gives rofi prompt labeled with first element and will execute second element upon selecting yes.
+# Based off from Luke Smith Dmenu video.
+# Example: `prompt "Do you want to shutdown?" "shutdown -h now"`
+# taken from https://git.olind.xyz/justanotherstrange/dotfiles/raw/branch/master/.local/bin/rofi-prompt
+[ $(echo -e "No\nYes" | rofi -dmenu -l 2 -i -p "$1") == "Yes" ] && $2
