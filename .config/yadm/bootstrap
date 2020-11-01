@@ -13,16 +13,31 @@ sudo pacman -S --noconfirm --needed \
                 firefox-developer-edition \
                 htop \
                 i3-gaps \
+                libreoffice \
                 libnotify \
                 neovim \
+                nm-connection-editor \
                 openssh \
+                pulseaudio-alsa \
+                pulsemixer \
                 python3 \
                 ripgrep \
                 rofi \
+                slock \
+                tmux \
+                tmuxinator \
                 udisks2 \
+                unclutter \
+                unzip \
+                wget \
+                xclip \
                 xorg-server \
                 xorg-xinit \
                 xorg-xrandr \
+                xorg-xset \
+                zatura \
+                zathura-pdf-mupdf \
+                zip \
                 zsh
 
 if pacman -Qs yay > /dev/null ; then
@@ -54,8 +69,9 @@ mkdir -p ~/.local/share/fonts
 curl https://raw.githubusercontent.com/adi1090x/polybar-themes/master/polybar-8/fonts/icomoon-feather.ttf > ~/.local/share/fonts/icomoon-feather.ttf
 fc-cache -vf ~/.local/share/fonts/
 
-# Make pacman display colored output
-sudo sed -i 's/#Color/Color\nILoveCandy/g' /etc/pacman.conf
+# Make pacman and yay colorful and adds eye candy on the progress bar because why not.
+grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 
 echo "=============="
 echo "==== DONE ===="
