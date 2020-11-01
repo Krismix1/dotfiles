@@ -1,0 +1,4 @@
+kiteco.kite
+mtxr.sqltools
+nrwl.angular-console
+vscoss.vscode-ansible

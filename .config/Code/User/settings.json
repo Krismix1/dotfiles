@@ -1,0 +1,62 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "editor.renderWhitespace": "all",
+    "explorer.autoReveal": false,
+    "cloudcode.gke": {
+        "projectIds": [
+            "development-254814"
+        ]
+    },
+    "window.zoomLevel": 0,
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.git": false,
+        "**/.pytest_cache": true,
+        "**/node_modules": true
+    },
+    "editor.fontSize": 18,
+    "go.formatTool": "goimports",
+    "python.formatting.provider": "black",
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestPath": "/home/cristi/.local/bin/pytest",
+    "autoDocstring.docstringFormat": "sphinx",
+    "yaml.format.singleQuote": true,
+    "terminal.integrated.fontFamily": "'MesloLGS NF'",
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "git.ignoredRepositories": [
+        "/home/cristi"
+    ],
+    "latex-workshop.latex.search.rootFiles.include": [
+        "main.tex"
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.viewer.command": "zathura"
+}

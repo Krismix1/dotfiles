@@ -7,6 +7,7 @@
 sudo pacman -S --noconfirm --needed \
                 alacritty \
                 base-devel \
+                chromium \
                 curl \
                 dunst \
                 feh \
@@ -55,7 +56,9 @@ fi
 
 # TODO: Import keys for Spotify
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                lazygit \
                 nerd-fonts-iosevka \
+                nvm \
                 polybar \
                 spicetify-cli \
                 spotify

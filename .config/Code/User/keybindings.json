@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+shift+p",
+        "command": "-cursorUpSelect",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "-cursorWordEndRightSelect",
+        "when": "editorTextFocus"
+    }
+]
