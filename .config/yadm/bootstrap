@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -e
 # ====================================
 # Install packages
 # ====================================
@@ -14,6 +14,9 @@ sudo pacman -S --noconfirm --needed \
                 firefox-developer-edition \
                 htop \
                 i3-gaps \
+                k9s \
+                kubectl \
+                kubectx \
                 libreoffice \
                 libnotify \
                 neovim \
@@ -21,12 +24,14 @@ sudo pacman -S --noconfirm --needed \
                 openssh \
                 pulseaudio-alsa \
                 pulsemixer \
+                pyenv \
+                python-poetry \
                 python3 \
                 ripgrep \
                 rofi \
                 slock \
+                thunar \
                 tmux \
-                tmuxinator \
                 udisks2 \
                 unclutter \
                 unzip \
@@ -36,7 +41,7 @@ sudo pacman -S --noconfirm --needed \
                 xorg-xinit \
                 xorg-xrandr \
                 xorg-xset \
-                zatura \
+                zathura \
                 zathura-pdf-mupdf \
                 zip \
                 zsh
@@ -56,12 +61,15 @@ fi
 
 # TODO: Import keys for Spotify
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                google-cloud-sdk \
                 lazygit \
                 nerd-fonts-iosevka \
                 nvm \
                 polybar \
                 spicetify-cli \
-                spotify
+                spotify \
+                tmuxinator
+
 
 
 # ====================================
