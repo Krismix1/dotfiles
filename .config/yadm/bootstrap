@@ -6,11 +6,14 @@
 
 sudo pacman -S --noconfirm --needed \
                 alacritty \
+                base-devel \
                 curl \
                 dunst \
+                feh \
                 firefox-developer-edition \
-                git \
+                htop \
                 i3-gaps \
+                libnotify \
                 neovim \
                 openssh \
                 python3 \
@@ -19,6 +22,7 @@ sudo pacman -S --noconfirm --needed \
                 udisks2 \
                 xorg-server \
                 xorg-xinit \
+                xorg-xrandr \
                 zsh
 
 if pacman -Qs yay > /dev/null ; then
@@ -34,6 +38,7 @@ else
     popd
 fi
 
+# TODO: Import keys for Spotify
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
                 nerd-fonts-iosevka \
                 polybar \
