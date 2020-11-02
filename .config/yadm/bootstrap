@@ -7,6 +7,8 @@ set -e
 sudo pacman -S --noconfirm --needed \
                 alacritty \
                 base-devel \
+                # dig is part of bind-tools
+                bind-tools \
                 chromium \
                 curl \
                 dunst \
@@ -19,7 +21,9 @@ sudo pacman -S --noconfirm --needed \
                 kubectx \
                 libreoffice \
                 libnotify \
+                maim \
                 neovim \
+                net-tools \
                 nm-connection-editor \
                 openssh \
                 pulseaudio-alsa \
@@ -27,6 +31,7 @@ sudo pacman -S --noconfirm --needed \
                 pyenv \
                 python-poetry \
                 python3 \
+                python-pip \
                 ripgrep \
                 rofi \
                 slock \
@@ -37,6 +42,7 @@ sudo pacman -S --noconfirm --needed \
                 unzip \
                 wget \
                 xclip \
+                xdotool \
                 xorg-server \
                 xorg-xinit \
                 xorg-xrandr \
@@ -44,7 +50,8 @@ sudo pacman -S --noconfirm --needed \
                 zathura \
                 zathura-pdf-mupdf \
                 zip \
-                zsh
+                zsh \
+                zsh-syntax-highlighting
 
 if pacman -Qs yay > /dev/null ; then
     echo "Yay is already installed, moving on..."
@@ -61,6 +68,7 @@ fi
 
 # TODO: Import keys for Spotify
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                git-delta \
                 google-cloud-sdk \
                 lazygit \
                 nerd-fonts-iosevka \
@@ -68,8 +76,8 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 polybar \
                 spicetify-cli \
                 spotify \
-                tmuxinator
-
+                tmuxinator \
+                zsh-fast-syntax-highlighting
 
 
 # ====================================
@@ -83,6 +91,12 @@ fc-cache -vf ~/.local/share/fonts/
 # Make pacman and yay colorful and adds eye candy on the progress bar because why not.
 grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
 grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+
+# Make a symlink for programs that look for "firefox"
+sudo ln -s /usr/bin/firefox-developer-edition /usr/bin/firefox
+
+# configure ssh agent
+systemctl --user enable --now ssh-agent.service
 
 echo "=============="
 echo "==== DONE ===="

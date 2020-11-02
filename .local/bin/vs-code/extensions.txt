@@ -30,3 +30,4 @@ PKief.material-icon-theme
 redhat.vscode-yaml
 VisualStudioExptTeam.vscodeintellicode
 wayou.vscode-todo-highlight
+ms-python.vscode-pylance

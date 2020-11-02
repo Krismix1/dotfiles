@@ -24,4 +24,4 @@
 # [[ -f "$HOME/.Xresources" ]] && xrdb -merge -I$HOME "$HOME/.Xresources"
 # [[ -f "$HOME/Scripts/keymap.sh" ]] && sh "$HOME/Scripts/keymap.sh"
 
-exec i3
+ssh-agent i3

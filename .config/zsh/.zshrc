@@ -94,5 +94,7 @@ export PATH="${PATH}:/opt/cisco/anyconnect/bin"
 # Make US, RU, RO and DK keyboard layout togglable with Win+Space
 setxkbmap -layout "us,ru,ro,dk" -variant ",,std," -option grp:win_space_toggle
 
+source /usr/share/nvm/init-nvm.sh
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null

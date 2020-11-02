@@ -25,7 +25,6 @@
     "go.formatTool": "goimports",
     "python.formatting.provider": "black",
     "python.testing.pytestEnabled": true,
-    "python.testing.pytestPath": "/home/cristi/.local/bin/pytest",
     "autoDocstring.docstringFormat": "sphinx",
     "yaml.format.singleQuote": true,
     "terminal.integrated.fontFamily": "'MesloLGS NF'",
@@ -58,5 +57,6 @@
     ],
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.view.pdf.viewer": "external",
-    "latex-workshop.view.pdf.external.viewer.command": "zathura"
+    "latex-workshop.view.pdf.external.viewer.command": "zathura",
+    "python.languageServer": "Pylance"
 }
