@@ -67,10 +67,13 @@ else
 fi
 
 # TODO: Import keys for Spotify
+# TODO: Import keys for Mullvad
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
-                git-delta \
+                git-delta-bin \
                 google-cloud-sdk \
+                insomnia-bin \
                 lazygit \
+                mullvad-vpn-bin \
                 nerd-fonts-iosevka \
                 nvm \
                 polybar \
@@ -97,6 +100,19 @@ sudo ln -s /usr/bin/firefox-developer-edition /usr/bin/firefox
 
 # configure ssh agent
 systemctl --user enable --now ssh-agent.service
+
+# configure touchpad settings
+sudo tee /etc/X11/xorg.conf.d/30-touchpad.conf > /dev/null << EOF
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "NaturalScrolling" "true"
+        Option "Tapping" "on"
+        Option "TappingButtonMap" "lrm"
+EndSection
+EOF
 
 echo "=============="
 echo "==== DONE ===="
