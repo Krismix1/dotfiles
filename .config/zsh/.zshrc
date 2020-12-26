@@ -96,5 +96,14 @@ setxkbmap -layout "us,ru,ro,dk" -variant ",,std," -option grp:win_space_toggle
 
 source /usr/share/nvm/init-nvm.sh
 
+# for programs that expect to find "chrome" binary
+export CHROME_BIN=chromium
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
