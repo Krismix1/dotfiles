@@ -58,5 +58,6 @@
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.view.pdf.external.viewer.command": "zathura",
-    "python.languageServer": "Pylance"
+    "python.languageServer": "Pylance",
+    "window.restoreWindows": "preserve"
 }
