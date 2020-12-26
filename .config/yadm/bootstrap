@@ -16,6 +16,7 @@ sudo pacman -S --noconfirm --needed \
                 firefox-developer-edition \
                 htop \
                 i3-gaps \
+                jq \
                 k9s \
                 kubectl \
                 kubectx \
@@ -25,6 +26,7 @@ sudo pacman -S --noconfirm --needed \
                 neovim \
                 net-tools \
                 nm-connection-editor \
+                ntfs-3g \
                 openssh \
                 pulseaudio-alsa \
                 pulsemixer \
@@ -47,6 +49,7 @@ sudo pacman -S --noconfirm --needed \
                 xorg-xinit \
                 xorg-xrandr \
                 xorg-xset \
+                yarn \
                 zathura \
                 zathura-pdf-mupdf \
                 zip \
@@ -69,6 +72,7 @@ fi
 # TODO: Import keys for Spotify
 # TODO: Import keys for Mullvad
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                dive \
                 git-delta-bin \
                 google-cloud-sdk \
                 insomnia-bin \
@@ -113,6 +117,9 @@ Section "InputClass"
         Option "TappingButtonMap" "lrm"
 EndSection
 EOF
+
+# Disable sudo password prompt timeout
+sudo grep -xq "Defaults passwd_timeout=0" /etc/sudoers || sudo sh -c 'echo "Defaults passwd_timeout=0" >> /etc/sudoers'
 
 echo "=============="
 echo "==== DONE ===="

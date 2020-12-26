@@ -56,6 +56,9 @@ windows:
   - dt-be-run:
       root: ~/projects/languagewire/mlt-direct-translate-backend
       panes:
-        - poetry run flask run
+        - poetry run python -m directtranslate
   - dt-fe-test:
       root: ~/projects/languagewire/mlt-direct-translate-frontend
+  - k9s:
+      panes:
+        - k9s
