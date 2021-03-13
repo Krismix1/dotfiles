@@ -26,6 +26,8 @@ colors:
 
 font:
   size: 10
+  normal:
+    family: "MesloLGS NF"
 
 # https://superuser.com/a/1548169
 key_bindings:

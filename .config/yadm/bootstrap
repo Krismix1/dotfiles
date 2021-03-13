@@ -7,6 +7,7 @@ set -e
 sudo pacman -S --noconfirm --needed \
                 alacritty \
                 base-devel \
+                bc \
                 # dig is part of bind-tools
                 bind-tools \
                 chromium \
@@ -14,6 +15,7 @@ sudo pacman -S --noconfirm --needed \
                 dunst \
                 feh \
                 firefox-developer-edition \
+                fzf \
                 htop \
                 i3-gaps \
                 jq \
@@ -26,6 +28,7 @@ sudo pacman -S --noconfirm --needed \
                 neovim \
                 net-tools \
                 nm-connection-editor \
+                noto-fonts-cjk \
                 ntfs-3g \
                 openssh \
                 pulseaudio-alsa \
@@ -76,6 +79,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 git-delta-bin \
                 google-cloud-sdk \
                 insomnia-bin \
+                lazydocker \
                 lazygit \
                 mullvad-vpn-bin \
                 nerd-fonts-iosevka \
