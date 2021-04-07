@@ -4,11 +4,12 @@ set -e
 # Install packages
 # ====================================
 
+# dig is part of bind-tools
+# hostname is part of inetutils
 sudo pacman -S --noconfirm --needed \
                 alacritty \
                 base-devel \
                 bc \
-                # dig is part of bind-tools
                 bind-tools \
                 chromium \
                 curl \
@@ -18,12 +19,14 @@ sudo pacman -S --noconfirm --needed \
                 fzf \
                 htop \
                 i3-gaps \
+                inetutils \
                 jq \
                 k9s \
                 kubectl \
                 kubectx \
                 libreoffice \
                 libnotify \
+                man-db \
                 maim \
                 neovim \
                 net-tools \
@@ -78,6 +81,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 dive \
                 git-delta-bin \
                 google-cloud-sdk \
+                ttf-icomoon-feather \
                 insomnia-bin \
                 lazydocker \
                 lazygit \
@@ -94,10 +98,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 # ====================================
 # Polybar font
 # ====================================
-
-mkdir -p ~/.local/share/fonts
-curl https://raw.githubusercontent.com/adi1090x/polybar-themes/master/polybar-8/fonts/icomoon-feather.ttf > ~/.local/share/fonts/icomoon-feather.ttf
-fc-cache -vf ~/.local/share/fonts/
 
 # Make pacman and yay colorful and adds eye candy on the progress bar because why not.
 grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
