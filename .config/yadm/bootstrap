@@ -87,6 +87,8 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 lazygit \
                 mullvad-vpn-bin \
                 nerd-fonts-iosevka \
+                nodejs \
+                npm \
                 nvm \
                 polybar \
                 spicetify-cli \
@@ -110,6 +112,7 @@ sudo ln -s /usr/bin/firefox-developer-edition /usr/bin/firefox
 systemctl --user enable --now ssh-agent.service
 
 # configure touchpad settings
+if [[ $(hostname -s) = asgard ]]; then
 sudo tee /etc/X11/xorg.conf.d/30-touchpad.conf > /dev/null << EOF
 Section "InputClass"
         Identifier "libinput touchpad catchall"
@@ -121,9 +124,13 @@ Section "InputClass"
         Option "TappingButtonMap" "lrm"
 EndSection
 EOF
+fi
 
 # Disable sudo password prompt timeout
 sudo grep -xq "Defaults passwd_timeout=0" /etc/sudoers || sudo sh -c 'echo "Defaults passwd_timeout=0" >> /etc/sudoers'
+
+# must be run once to configure nvm
+source /usr/share/nvm/init-nvm.sh
 
 echo "=============="
 echo "==== DONE ===="
