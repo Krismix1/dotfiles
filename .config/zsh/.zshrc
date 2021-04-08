@@ -85,7 +85,6 @@ plugins=(
   docker-compose
   kubectl
   npm
-  npx
   nvm
   poetry
   pyenv
