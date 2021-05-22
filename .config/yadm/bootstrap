@@ -17,6 +17,7 @@ sudo pacman -S --noconfirm --needed \
                 feh \
                 firefox-developer-edition \
                 fzf \
+                go \
                 htop \
                 i3-gaps \
                 inetutils \
@@ -24,10 +25,10 @@ sudo pacman -S --noconfirm --needed \
                 k9s \
                 kubectl \
                 kubectx \
-                libreoffice \
                 libnotify \
-                man-db \
+                libreoffice \
                 maim \
+                man-db \
                 neovim \
                 net-tools \
                 nm-connection-editor \
@@ -37,9 +38,9 @@ sudo pacman -S --noconfirm --needed \
                 pulseaudio-alsa \
                 pulsemixer \
                 pyenv \
+                python-pip \
                 python-poetry \
                 python3 \
-                python-pip \
                 ripgrep \
                 rofi \
                 slock \
@@ -131,6 +132,9 @@ sudo grep -xq "Defaults passwd_timeout=0" /etc/sudoers || sudo sh -c 'echo "Defa
 
 # must be run once to configure nvm
 source /usr/share/nvm/init-nvm.sh
+
+# create folder for ZSH history
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 echo "=============="
 echo "==== DONE ===="
