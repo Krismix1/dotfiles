@@ -67,11 +67,9 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-12+42"
-
-    # Shrink window if it's smaller than the width.  Will be ignored if
-    # width is 0.
-    shrink = yes
+    width = (0, 500)
+    scale = 1
+    offset = 12x42
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -160,33 +158,12 @@
     width = 4
     #color = "#aaaaaa"
 
-[shortcuts]
-
-    # Shortcuts are specified as [modifier+][modifier+]...key
-    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-    # "mod3" and "mod4" (windows-key).
-    # Xev might be helpful to find names for keys.
-
-    # Close notification.
-    close = ctrl+space
-
-    # Close all notifications.
-    close_all = ctrl+shift+space
-
-    # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1".
-    history = ctrl+grave
-
-    # Context menu.
-    context = ctrl+shift+period
-
 [urgency_low]
     background = "#282828"
     foreground = "#ebdbb2"
     frame_color = "#83a598"
     timeout = 10
- 
+
 [urgency_normal]
     background = "#282828"
     foreground = "#ebdbb2"
