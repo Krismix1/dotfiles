@@ -6,7 +6,8 @@
 # to clean up.
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':')"
+# FIXME: This script adds all subfolder to the PATH as well, which is not good for xrandr git repository, and other custom "installer" scripts
+export PATH="$PATH:$(du "$HOME/.local/bin" | grep -v xrandr | cut -f2 | paste -sd ':')"
 
 # Default programs:
 export EDITOR="nvim"
