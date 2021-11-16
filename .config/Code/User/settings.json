@@ -11,7 +11,6 @@
             "development-254814"
         ]
     },
-    "window.zoomLevel": 0,
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
@@ -59,6 +58,30 @@
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.view.pdf.external.viewer.command": "zathura",
     "python.languageServer": "Pylance",
-    "window.restoreWindows": "preserve"
+    "tabnine.experimentalAutoImports": true,
+    "window.restoreWindows": "preserve",
+    "python.analysis.typeCheckingMode": "basic",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": true,
+    "editor.tabSize": 8,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "redhat.telemetry.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "javascript.inlayHints.parameterNames.enabled": "literals",
+    "typescript.inlayHints.parameterNames.enabled": "literals",
     "oz.enableLinter": true
 }

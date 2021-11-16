@@ -5,7 +5,7 @@ application/x-bittorrent=torrent.desktop;
 x-scheme-handler/mailto=mail.desktop;
 application/postscript=pdf.desktop;
 application/pdf=pdf.desktop;
-image/png=img.desktop;
+image/png=sxiv.desktop
 image/jpeg=img.desktop;
 image/gif=img.desktop;
 application/rss+xml=rss.desktop
@@ -20,3 +20,15 @@ application/json=firefox-developer-edition.desktop
 text/html=firefox-developer-edition.desktop
 text/plain=nvim.desktop
 application/xliff+xml=visual-studio-code.desktop
+x-scheme-handler/etcher=balena-etcher-electron.desktop
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
+
+[Added Associations]
+application/json=visual-studio-code.desktop;
+text/html=visual-studio-code.desktop;
+application/octet-stream=visual-studio-code.desktop;firefox-developer-edition.desktop;
+application/pdf=okularApplication_pdf.desktop;firefox-developer-edition.desktop;
+text/plain=visual-studio-code.desktop;
+application/x-yaml=visual-studio-code.desktop;libreoffice-writer.desktop;
+image/png=sxiv.desktop;
+application/x-xliff+xml=visual-studio-code.desktop;
