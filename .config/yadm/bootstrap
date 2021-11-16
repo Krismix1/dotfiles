@@ -85,7 +85,6 @@ fi
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
                 bitwarden-cli \
                 dive \
-                google-cloud-sdk \
                 ttf-icomoon-feather \
                 insomnia-bin \
                 lazydocker \

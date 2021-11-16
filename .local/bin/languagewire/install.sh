@@ -3,5 +3,6 @@ sudo pacman -S --noconfirm --needed \
                 firefox \
                 networkmanager-openconnect
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                google-cloud-sdk \
                 quickredis \
                 teams
