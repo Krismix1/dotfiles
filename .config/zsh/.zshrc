@@ -170,7 +170,3 @@ export NVM_DIR="$HOME/.config/nvm"
 # setxkbmap -option caps:escape
 # Make US, RU, RO and DK keyboard layout togglable with Win+Space
 setxkbmap -layout "us,ru,ro,dk" -variant ",,std," -option grp:win_space_toggle
-
-
-# for programs that expect to find "chrome" binary
-export CHROME_BIN=chromium

@@ -17,6 +17,7 @@ sudo pacman -S --noconfirm --needed \
                 feh \
                 firefox-developer-edition \
                 fzf \
+                git-delta \
                 go \
                 htop \
                 i3-gaps \
@@ -40,12 +41,15 @@ sudo pacman -S --noconfirm --needed \
                 pyenv \
                 python-pip \
                 python-poetry \
+                python-pywal \
                 python3 \
                 ripgrep \
                 rofi \
                 slock \
+                sxiv \
                 thunar \
                 tmux \
+                ttf-iosevka-nerd \
                 udisks2 \
                 unclutter \
                 unzip \
@@ -79,17 +83,14 @@ fi
 # TODO: Import keys for Spotify
 # TODO: Import keys for Mullvad
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                bitwarden-cli \
                 dive \
-                git-delta-bin \
                 google-cloud-sdk \
                 ttf-icomoon-feather \
                 insomnia-bin \
                 lazydocker \
                 lazygit \
                 mullvad-vpn-bin \
-                nerd-fonts-iosevka \
-                nodejs \
-                npm \
                 nvm \
                 polybar \
                 spicetify-cli \
@@ -105,9 +106,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 # Make pacman and yay colorful and adds eye candy on the progress bar because why not.
 grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
 grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-
-# Make a symlink for programs that look for "firefox"
-sudo ln -s /usr/bin/firefox-developer-edition /usr/bin/firefox
 
 # configure ssh agent
 systemctl --user enable --now ssh-agent.service
