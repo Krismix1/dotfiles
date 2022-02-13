@@ -103,8 +103,9 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 # ====================================
 
 # Make pacman and yay colorful and adds eye candy on the progress bar because why not.
-grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
+sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
 grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+grep -q "ParallelDownloads" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ParallelDownloads = 5" /etc/pacman.conf
 
 # configure ssh agent
 systemctl --user enable --now ssh-agent.service

@@ -16,7 +16,6 @@ mechatroner.rainbow-csv
 michelemelluso.code-beautifier
 mikestead.dotenv
 ms-azuretools.vscode-docker
-msjsdiag.debugger-for-chrome
 ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.python
 ms-vscode.atom-keybindings

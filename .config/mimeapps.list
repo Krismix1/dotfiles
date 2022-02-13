@@ -32,3 +32,4 @@ text/plain=visual-studio-code.desktop;
 application/x-yaml=visual-studio-code.desktop;libreoffice-writer.desktop;
 image/png=sxiv.desktop;
 application/x-xliff+xml=visual-studio-code.desktop;
+image/jpeg=sxiv.desktop;
