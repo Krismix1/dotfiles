@@ -94,10 +94,11 @@ fi
 
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
                 bitwarden-cli \
+                catppuccin-gtk-theme \
                 dive \
-                ttf-icomoon-feather \
                 insomnia-bin \
                 lazydocker \
+                ttf-icomoon-feather \
                 lazygit \
                 mullvad-vpn-bin \
                 nvm \

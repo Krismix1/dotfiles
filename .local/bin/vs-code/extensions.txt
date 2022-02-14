@@ -30,3 +30,4 @@ redhat.vscode-yaml
 VisualStudioExptTeam.vscodeintellicode
 wayou.vscode-todo-highlight
 ms-python.vscode-pylance
+catppuccin.catppuccin-vsc

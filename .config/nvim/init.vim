@@ -20,6 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'ap/vim-css-color'
 Plug 'Procrat/oz.vim' " https://github.com/Procrat/oz.vim
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 
 set bg=light
@@ -125,3 +126,5 @@ set clipboard+=unnamedplus
 if &diff
     highlight! link DiffText MatchParen
 endif
+
+colorscheme catppuccin
