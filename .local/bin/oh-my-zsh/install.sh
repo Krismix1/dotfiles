@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
 config_folder="${XDG_CONFIG_HOME:-$HOME/.config}"
 oh_my_zsh_folder="${config_folder}/oh-my-zsh"
 ZSH="${oh_my_zsh_folder}" sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc

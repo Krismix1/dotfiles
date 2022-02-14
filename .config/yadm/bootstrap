@@ -1,5 +1,17 @@
 #!/bin/sh
 set -e
+
+# Make pacman and yay colorful and adds eye candy on the progress bar because why not.
+sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "^ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+grep -q "^ParallelDownloads" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ParallelDownloads = 5" /etc/pacman.conf
+
+# set golang vars before installing anything for go
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOBIN="${GOPATH}/bin"
+
+sudo pacman -Syuu --noconfirm
+
 # ====================================
 # Install packages
 # ====================================
@@ -80,8 +92,6 @@ else
     popd
 fi
 
-# TODO: Import keys for Spotify
-# TODO: Import keys for Mullvad
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
                 bitwarden-cli \
                 dive \
@@ -102,10 +112,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 # Polybar font
 # ====================================
 
-# Make pacman and yay colorful and adds eye candy on the progress bar because why not.
-sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-grep -q "ParallelDownloads" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ParallelDownloads = 5" /etc/pacman.conf
 
 # configure ssh agent
 systemctl --user enable --now ssh-agent.service

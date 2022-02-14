@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# https://forums.linuxmint.com/viewtopic.php?t=159064
+# based on https://forums.linuxmint.com/viewtopic.php?t=159064
+set -e
 
 sudo pacman -S --noconfirm --needed xorg-util-macros
 git clone git://anongit.freedesktop.org/xorg/app/xrandr
