@@ -29,6 +29,7 @@ sudo pacman -S --noconfirm --needed \
                 feh \
                 firefox-developer-edition \
                 fzf \
+                gdu \
                 git-delta \
                 go \
                 htop \
@@ -68,6 +69,7 @@ sudo pacman -S --noconfirm --needed \
                 wget \
                 xclip \
                 xdotool \
+                xorg-mkfontscale \
                 xorg-server \
                 xorg-xinit \
                 xorg-xrandr \
@@ -101,6 +103,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 ttf-icomoon-feather \
                 lazygit \
                 mullvad-vpn-bin \
+                nerd-fonts-jetbrains-mono \
                 nvm \
                 polybar \
                 spicetify-cli \
