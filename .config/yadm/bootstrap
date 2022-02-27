@@ -111,6 +111,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 polybar \
                 spicetify-cli \
                 spotify \
+                tela-icon-theme-bin \
                 tmuxinator \
                 zsh-fast-syntax-highlighting
 
