@@ -17,8 +17,27 @@ set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $hibernate sudo -A systemctl suspend
 set $rofi rofi -modi run,drun -show drun -columns 1 -width 24 -lines 8 -padding 45 -hide-scrollbar -show-icons -drun-icon-theme 'Papirus'
 
+# #---Theme colors---# #
+set $flamingo #f2cdcd
+set $mauve #ddb6f2
+set $pink #f5c2e7
+set $maroon #e8a2af
+set $red #f28fad
+set $peach #f8bd96
+set $yellow #fae3b0
+set $green #abe9b3
+set $teal #b5e8e0
+set $blue #96cdfb
+set $sky #89dceb
+
+# #---Theme---# #
+# https://i3wm.org/docs/userguide.html#_changing_colors
+# class border backgr. text indicator child_border
+client.focused #4c7899 #285577 #ffffff $mauve $mauve
+client.urgent #2f343a #900000 #ffffff #900000 $red
+
 # #---Gaps---# #
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
