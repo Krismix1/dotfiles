@@ -6,11 +6,6 @@
     "editor.formatOnPaste": true,
     "editor.renderWhitespace": "all",
     "explorer.autoReveal": false,
-    "cloudcode.gke": {
-        "projectIds": [
-            "development-254814"
-        ]
-    },
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
@@ -83,5 +78,6 @@
     "editor.bracketPairColorization.enabled": true,
     "javascript.inlayHints.parameterNames.enabled": "literals",
     "typescript.inlayHints.parameterNames.enabled": "literals",
-    "oz.enableLinter": true
+    "oz.enableLinter": true,
+    "editor.fontFamily": "'JetbrainsMono Nerd Font', 'icomoon-feather', 'Droid Sans Mono', 'monospace', monospace"
 }
