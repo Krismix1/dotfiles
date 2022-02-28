@@ -43,22 +43,22 @@ root: ~/projects/languagewire
 # attach: false
 
 windows:
-  - dt-fe:
-      root: ~/projects/languagewire/mlt-direct-translate-frontend
-  - dt-be:
-      root: ~/projects/languagewire/mlt-direct-translate-backend
+  - lwt-fe:
+      root: ~/projects/languagewire/mlt-lwt-frontend
+  - lwt-be:
+      root: ~/projects/languagewire/mlt-lwt-backend
       panes:
         - poetry shell
-  - dt-fe-run:
-      root: ~/projects/languagewire/mlt-direct-translate-frontend
+  - lwt-fe-run:
+      root: ~/projects/languagewire/mlt-lwt-frontend
       panes:
         - npm run start
-  - dt-be-run:
-      root: ~/projects/languagewire/mlt-direct-translate-backend
+  - lwt-be-run:
+      root: ~/projects/languagewire/mlt-lwt-backend
       panes:
-        - poetry run python -m directtranslate
-  - dt-fe-test:
-      root: ~/projects/languagewire/mlt-direct-translate-frontend
+        - poetry run python -m lwt
+  - lwt-fe-test:
+      root: ~/projects/languagewire/mlt-lwt-frontend
   - k9s:
       panes:
         - k9s

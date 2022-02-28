@@ -83,6 +83,7 @@ plugins=(
   git
   docker
   docker-compose
+  helm
   kubectl
   npm
   nvm

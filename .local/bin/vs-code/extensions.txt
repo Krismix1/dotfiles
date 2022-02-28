@@ -6,7 +6,6 @@ eamodio.gitlens
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
 firefox-devtools.vscode-firefox-debug
-glen-84.sass-lint
 googlecloudtools.cloudcode
 James-Yu.latex-workshop
 jdinhlife.gruvbox
@@ -30,3 +29,4 @@ redhat.vscode-yaml
 VisualStudioExptTeam.vscodeintellicode
 wayou.vscode-todo-highlight
 ms-python.vscode-pylance
+haaleo.vscode-stylint
