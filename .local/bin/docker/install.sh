@@ -5,7 +5,9 @@ sudo pacman -S --noconfirm --needed \
                 docker \
                 docker-compose
 
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
+yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                lazydocker
+
+sudo systemctl enable --now docker.service
 sudo groupadd docker
 sudo usermod -aG docker $USER

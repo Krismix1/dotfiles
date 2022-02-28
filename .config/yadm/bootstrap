@@ -104,7 +104,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 dive \
                 gotop \
                 insomnia-bin \
-                lazydocker \
                 ttf-icomoon-feather \
                 lazygit \
                 mullvad-vpn-bin \
