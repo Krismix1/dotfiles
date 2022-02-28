@@ -102,6 +102,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 bitwarden-cli \
                 catppuccin-gtk-theme \
                 dive \
+                gotop \
                 insomnia-bin \
                 lazydocker \
                 ttf-icomoon-feather \
