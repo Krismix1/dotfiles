@@ -51,6 +51,7 @@ sudo pacman -S --noconfirm --needed \
                 noto-fonts-cjk \
                 ntfs-3g \
                 openssh \
+                picom \
                 pulseaudio-alsa \
                 pulsemixer \
                 pyenv \
