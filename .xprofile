@@ -18,6 +18,11 @@ PATCHED="$HOME/.local/bin/xrandr/xrandr/xrandr"
 # [[ -f "$HOME/.Xresources" ]] && xrdb -merge -I$HOME "$HOME/.Xresources"
 # [[ -f "$HOME/Scripts/keymap.sh" ]] && sh "$HOME/Scripts/keymap.sh"
 
+# pyenv setup
+# https://github.com/ohmyzsh/ohmyzsh/issues/10385#issuecomment-966453358
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 setbg &			# set the background with the `setbg` script

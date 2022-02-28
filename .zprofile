@@ -155,3 +155,9 @@ export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/pythonrc"
 
 # Switch escape and caps if tty and no passwd required:
 # sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+
+# pyenv setup
+# https://github.com/ohmyzsh/ohmyzsh/issues/10385#issuecomment-966453358
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
