@@ -27,6 +27,18 @@ set go=a
 set mouse=a
 set nohlsearch
 set clipboard+=unnamedplus
+set expandtab                       " Spaces instead of tabs
+set ignorecase                      " Ignore case when searching
+set smartcase                       " Ignore case if all lowercase
+set visualbell                      " Don't beep
+set noerrorbells                    " Don't beep
+set nobackup                        " Don't need backup
+set nowritebackup                   " Don't need backup
+set noswapfile                      " Don't need swp files
+set showmatch                       " Show matching braces when over one
+set backspace=indent,eol,start      " Allow backspacing everything in insert
+set hlsearch                        " Highlight searches
+set incsearch                       " Search as typing
 
 " Some basics:
 	nnoremap c "_c
