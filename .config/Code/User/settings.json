@@ -35,7 +35,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -53,26 +53,15 @@
     "latex-workshop.view.pdf.viewer": "external",
     "latex-workshop.view.pdf.external.viewer.command": "zathura",
     "python.languageServer": "Pylance",
-    "tabnine.experimentalAutoImports": true,
     "window.restoreWindows": "preserve",
-    "python.analysis.typeCheckingMode": "basic",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "*.ipynb": "jupyter.notebook.ipynb"
     },
     "vim.useSystemClipboard": true,
     "vim.smartRelativeLine": true,
-    "editor.tabSize": 8,
-    "editor.cursorStyle": "line",
-    "editor.insertSpaces": false,
-    "editor.lineNumbers": "on",
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.wordWrap": "off",
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
+    "editor.guides.bracketPairsHorizontal": "active",
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "redhat.telemetry.enabled": false,
     "editor.bracketPairColorization.enabled": true,
@@ -80,4 +69,10 @@
     "typescript.inlayHints.parameterNames.enabled": "literals",
     "oz.enableLinter": true,
     "editor.fontFamily": "'JetbrainsMono Nerd Font', 'icomoon-feather', 'Droid Sans Mono', 'monospace', monospace"
+    "[nginx]": {
+        "editor.defaultFormatter": "raynigon.nginx-formatter"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    }
 }

@@ -70,6 +70,7 @@ sudo pacman -S --noconfirm --needed \
                 udisks2 \
                 unclutter \
                 unzip \
+                vlc \
                 wget \
                 xclip \
                 xdotool \
