@@ -40,6 +40,8 @@ set showmatch                       " Show matching braces when over one
 set backspace=indent,eol,start      " Allow backspacing everything in insert
 set hlsearch                        " Highlight searches
 set incsearch                       " Search as typing
+set list
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
 " Some basics:
 	nnoremap c "_c

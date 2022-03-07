@@ -19,6 +19,7 @@ ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.python
 ms-vscode.atom-keybindings
 ms-vscode.Go
+golang.go
 ms-vscode-remote.remote-containers
 ms-vscode.vscode-typescript-tslint-plugin
 njpwerner.autodocstring
