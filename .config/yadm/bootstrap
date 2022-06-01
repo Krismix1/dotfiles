@@ -66,6 +66,7 @@ sudo pacman -S --noconfirm --needed \
                 sxiv \
                 thunar \
                 tmux \
+                ttf-fira-code \
                 ttf-iosevka-nerd \
                 udisks2 \
                 unclutter \

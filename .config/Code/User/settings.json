@@ -68,7 +68,8 @@
     "javascript.inlayHints.parameterNames.enabled": "literals",
     "typescript.inlayHints.parameterNames.enabled": "literals",
     "oz.enableLinter": true,
-    "editor.fontFamily": "'JetbrainsMono Nerd Font', 'icomoon-feather', 'Droid Sans Mono', 'monospace', monospace"
+    "editor.fontFamily": "'Fira Code', 'JetbrainsMono Nerd Font', 'icomoon-feather', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
     "[nginx]": {
         "editor.defaultFormatter": "raynigon.nginx-formatter"
     },
