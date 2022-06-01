@@ -107,6 +107,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 insomnia-bin \
                 ttf-icomoon-feather \
                 lazygit \
+                lf \
                 mullvad-vpn-bin \
                 nerd-fonts-jetbrains-mono \
                 nvm \
