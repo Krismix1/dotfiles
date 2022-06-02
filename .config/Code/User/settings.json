@@ -67,7 +67,6 @@
     "editor.bracketPairColorization.enabled": true,
     "javascript.inlayHints.parameterNames.enabled": "literals",
     "typescript.inlayHints.parameterNames.enabled": "literals",
-    "oz.enableLinter": true,
     "editor.fontFamily": "'Fira Code', 'JetbrainsMono Nerd Font', 'icomoon-feather', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
     "[nginx]": {
