@@ -81,5 +81,6 @@
     "typescript.inlayHints.enumMemberValues.enabled": true,
     "javascript.inlayHints.parameterTypes.enabled": true,
     "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-    "javascript.inlayHints.variableTypes.enabled": true
+    "javascript.inlayHints.variableTypes.enabled": true,
+    "nxConsole.enableTelemetry": false
 }

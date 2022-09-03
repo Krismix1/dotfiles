@@ -101,6 +101,7 @@ else
 fi
 
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
+                bfg \
                 bitwarden-cli \
                 catppuccin-gtk-theme \
                 dive \
