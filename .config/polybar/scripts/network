@@ -19,7 +19,7 @@ esac
 
 ssid=""
 if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
-	ssid=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\: -f2)
+	ssid=$(nmcli -t -f active,ssid dev wifi | grep -E '^yes' | cut -d\: -f2)
 	ssid=" ${ssid}"
 	wifiicon="$(awk '/^\s*w/ { print " ", int($3 * 100 / 70)"%"}' /proc/net/wireless)"
 elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
