@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 scrot /tmp/screen.png
-convert /tmp/screen.png -scale 10% -scale 1000% /tmp/screen.png
-# python get_dad_joke.py
-i3lock -i /tmp/screen.png
+cp -r ~/.config/lockscreens /tmp
+convert /tmp/screen.png -scale 10% -scale 1000% /tmp/lockscreens/screen.png
+image=$(ls /tmp/lockscreens/* | sort -R | tail -n 1)
+i3lock -i "$image"
 rm /tmp/screen.png
