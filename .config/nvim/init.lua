@@ -64,6 +64,12 @@ require('packer').startup(function(use)
     use "theprimeagen/harpoon"
     use "mbbill/undotree"
     use 'eandrju/cellular-automaton.nvim'
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
 
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -166,7 +172,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- See `:help lualine.txt`
 require('lualine').setup {
     options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
@@ -585,3 +591,33 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+require("nvim-tree").setup({
+    sort_by = "case_sensitive",
+    view = {
+        width = 30,
+        mappings = {
+            list = {
+                { key = "u", action = "dir_up" },
+            },
+        },
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
+})
+
+local nvim_tree = require("nvim-tree.api").tree
+vim.keymap.set("n", "<C-_>", function()
+    nvim_tree.toggle({ find_file = true, update_root = false, current_window = false })
+end
+);
