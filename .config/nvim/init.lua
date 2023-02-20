@@ -70,6 +70,8 @@ require('packer').startup(function(use)
             'nvim-tree/nvim-web-devicons', -- optional, for file icons
         },
     }
+    use { 'joeveiga/ng.nvim' }
+    use 'm4xshen/autoclose.nvim'
 
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -371,6 +373,7 @@ local servers = {
     -- end
     -- },
     pylsp = {},
+    angularls = {},
     rust_analyzer = {},
     tsserver = {},
     lua_ls = {
@@ -621,3 +624,19 @@ vim.keymap.set("n", "<C-_>", function()
     nvim_tree.toggle({ find_file = true, update_root = false, current_window = false })
 end
 );
+local ng_opts = { noremap = true, silent = true }
+local ng = require("ng");
+vim.keymap.set("n", "<leader>at", ng.goto_template_for_component, opts)
+vim.keymap.set("n", "<leader>ac", ng.goto_component_with_template_file, opts)
+vim.keymap.set("n", "<leader>aT", ng.get_template_tcb, opts)
+
+require("autoclose").setup({
+    options = {
+        disabled_filetypes = {},
+        disable_when_touch = true,
+    },
+    keys = {
+        ["<"] = { escape = true, close = true, pair = "<>" },
+        ["|"] = { escape = true, close = true, pair = "||" },
+    }
+})

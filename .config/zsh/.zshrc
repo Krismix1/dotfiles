@@ -80,9 +80,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   archlinux
-  git
   docker
   docker-compose
+  git
   helm
   kubectl
   npm
@@ -90,6 +90,7 @@ plugins=(
   poetry
   pyenv
   python
+  rust
   ssh-agent
   systemd
   tmux
