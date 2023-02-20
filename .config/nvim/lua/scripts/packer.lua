@@ -74,6 +74,23 @@ require('packer').startup(function(use)
     }
     use { 'joeveiga/ng.nvim' }
     use 'm4xshen/autoclose.nvim'
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-lua/plenary.nvim",
+            "nvim-neotest/neotest-plenary",
+            "mfussenegger/nvim-dap",
+        }
+    }
+    use { "nvim-neotest/neotest-python", requires = {
+        'nvim-treesitter/nvim-treesitter',
+        "mfussenegger/nvim-dap-python",
+    } }
+
+    use { "haydenmeade/neotest-jest" }
 
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
