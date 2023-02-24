@@ -52,7 +52,7 @@ windows:
   - lwt-fe-run:
       root: ~/projects/languagewire/mlt-lwt-frontend
       panes:
-        - npm run start
+        - npm run lwt-web:start
   - lwt-be-run:
       root: ~/projects/languagewire/mlt-lwt-backend
       panes:
