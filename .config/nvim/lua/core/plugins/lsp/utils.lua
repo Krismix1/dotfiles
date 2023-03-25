@@ -4,61 +4,64 @@ local M = {}
 -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
 local util = require("lspconfig/util")
 local path = util.path
-function M.get_python_path_local_venv(workspace)
-  -- Use activated virtualenv.
-  if vim.env.VIRTUAL_ENV then
-    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
-  end
-
-  local match = vim.fn.glob(path.join(workspace, '.venv'))
-  if match ~= '' then
-    return path.join(match, 'bin', 'python')
-  end
-
-  -- Fallback to system Python.
-  return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
-end
-
-function M.get_python_path_poetry_venv(workspace)
-  -- Use activated virtualenv.
-  if vim.env.VIRTUAL_ENV then
-    return path.join(vim.env.VIRTUAL_ENV)
-  end
-
-  local match = vim.fn.glob(path.join(workspace, 'poetry.lock'))
-  if match ~= '' then
-    local venv = vim.fn.trim(vim.fn.system('poetry env info -p'))
-    return venv
-  end
-
-  return nil
-end
-
 function M.get_python_path(workspace)
-  -- Use activated virtualenv.
-  if vim.env.VIRTUAL_ENV then
-    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
-  end
+    -- Use activated virtualenv.
+    if vim.env.VIRTUAL_ENV then
+        return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+    end
 
-  local venv = M.get_python_path_poetry_venv(workspace)
-  if venv then
-    return path.join(venv, 'bin', 'python')
-  end
+    local match = vim.fn.glob(path.join(workspace, ".venv"))
+    if match ~= "" then
+        return path.join(match, "bin", "python")
+    end
 
-  -- Fallback to system Python.
-  return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+    -- Fallback to system Python.
+    return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
 end
 
-M.exists = function(file)
-  -- https://stackoverflow.com/a/40195356/4000764
-  local ok, err, code = os.rename(file, file)
-  if not ok then
-    if code == 13 then
-      -- Permission denied, but it exists
-      return true
+function M.custom_lsp_attach(client)
+    -- disable formatting for LSP clients as this is handled by null-ls
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+end
+
+function M.keybindings(bufnr)
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = "LSP: " .. desc
+        end
+
+        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
     end
-  end
-  return ok, err
+
+    nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+    nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+    nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+    nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+    nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+    nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+    nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+
+    -- See `:help K` for why this keymap
+    nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+    nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+
+    nmap("<leader>f", vim.lsp.buf.format, "[F]ormat buffer")
+
+    -- Lesser used LSP functionality
+    nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+    nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+    nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+    nmap("<leader>wl", function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, "[W]orkspace [L]ist Folders")
+
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+        vim.lsp.buf.format()
+    end, { desc = "Format current buffer with LSP" })
 end
 
 return M

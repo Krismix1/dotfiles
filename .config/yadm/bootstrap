@@ -24,9 +24,12 @@ sudo pacman -S --noconfirm --needed \
                 bc \
                 bind-tools \
                 chromium \
+                cargo-nextest \
+                ctags \
                 curl \
                 dunst \
                 feh \
+                fd \
                 firefox-developer-edition \
                 fzf \
                 gdu \
@@ -108,9 +111,9 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 dive \
                 gotop \
                 insomnia-bin \
-                ttf-icomoon-feather \
                 lazygit \
                 lf \
+                ttf-icomoon-feather \
                 mullvad-vpn-bin \
                 nvm \
                 polybar \
