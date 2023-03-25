@@ -35,7 +35,7 @@ function M.keybindings(bufnr)
     end
 
     nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-    nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+    nmap("<leader>ca", "<cmd>CodeActionMenu<CR>", "[C]ode [A]ction")
 
     nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
     nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -48,7 +48,9 @@ function M.keybindings(bufnr)
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
     nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
-    nmap("<leader>f", vim.lsp.buf.format, "[F]ormat buffer")
+    nmap("<leader>f", function()
+        vim.lsp.buf.format({ async = true })
+    end, "[F]ormat buffer")
 
     -- Lesser used LSP functionality
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -62,6 +64,8 @@ function M.keybindings(bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
         vim.lsp.buf.format()
     end, { desc = "Format current buffer with LSP" })
+
+    vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 end
 
 return M

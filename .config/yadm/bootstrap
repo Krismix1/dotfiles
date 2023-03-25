@@ -113,7 +113,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 insomnia-bin \
                 lazygit \
                 lf \
-                ttf-icomoon-feather \
                 mullvad-vpn-bin \
                 nvm \
                 polybar \
@@ -121,6 +120,8 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 spotify \
                 tela-icon-theme-bin \
                 tmuxinator \
+                ttf-icomoon-feather \
+                ttf-twemoji \
                 zsh-fast-syntax-highlighting
 
 
