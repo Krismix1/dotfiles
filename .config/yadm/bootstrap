@@ -156,6 +156,8 @@ source /usr/share/nvm/init-nvm.sh
 
 # create folder for ZSH history
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+# create folder for nvim
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/nvim/ctags"
 
 echo "=============="
 echo "==== DONE ===="
