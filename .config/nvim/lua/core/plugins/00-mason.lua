@@ -67,6 +67,8 @@ local M = {
                         "too-few-public-methods",
                         "-d",
                         "line-too-long",
+                        "--extension-pkg-whitelist",
+                        "pydantic",
                     },
                 }),
                 nls.builtins.formatting.black.with({
