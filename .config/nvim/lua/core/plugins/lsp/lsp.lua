@@ -32,7 +32,7 @@ require("mason-lspconfig").setup({
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = function(client, bufnr)
-            lsp_utils.custom_lsp_attach(client, bufnr)
+            lsp_utils.custom_lsp_attach(client)
             lsp_utils.keybindings(bufnr)
         end,
         -- before_init = function(_, config)

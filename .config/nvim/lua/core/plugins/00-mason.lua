@@ -21,6 +21,7 @@ local M = {
             ensure_installed = settings.mason_tool_installer_ensure_installed,
             automatic_installation = true,
             automatic_setup = true, -- Recommended, but optional
+            handlers = {},
             -- if set to true this will check each tool for updates. If updates
             -- are available the tool will be updated. This setting does not
             -- affect :MasonToolsUpdate or :MasonToolsInstall.
@@ -86,8 +87,6 @@ local M = {
                 nls.builtins.diagnostics.ruff.with({ extra_args = { "--ignore", "E501" } }), -- ignore line length
             },
         })
-
-        require("mason-null-ls").setup_handlers() -- If `automatic_setup` is true.
     end,
 }
 
