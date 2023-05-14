@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Add buffer
 -- end)
 -- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- allow moving seleced lines up and down
+-- allow moving selected lines up and down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 

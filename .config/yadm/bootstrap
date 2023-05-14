@@ -161,7 +161,11 @@ source /usr/share/nvm/init-nvm.sh
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # create folder for nvim
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/nvim/ctags"
+
 touch "${XDG_CONFIG_HOME:-$HOME/.config}/pythonrc"
+
+# Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 echo "=============="
 echo "==== DONE ===="
