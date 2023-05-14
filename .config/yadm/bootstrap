@@ -60,6 +60,7 @@ sudo pacman -S --noconfirm --needed \
                 pyenv \
                 python-pip \
                 python-poetry \
+                python-pynvim \
                 python-pywal \
                 python3 \
                 ripgrep \
@@ -114,6 +115,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 insomnia-bin \
                 lazygit \
                 lf \
+                lua-format \
                 mullvad-vpn-bin \
                 nvm \
                 polybar \
