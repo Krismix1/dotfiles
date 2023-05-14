@@ -20,7 +20,7 @@ local M = {
             output = { enabled = true },
             adapters = {
                 require("neotest-python")({
-                    -- args = { "--integration", "--integration-skip-ready" },
+                    args = { "--integration", --[[ "--integration-skip-ready", ]] "-vv" },
                     dap = {
                         justMyCode = false,
                         console = "integratedTerminal",
