@@ -14,3 +14,15 @@
 [delta "decorations"]
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
+[diff]
+    tool = vimdiff
+[merge]
+    summary = true
+    log = true
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
+[rerere]
+    enabled = true
+[submodule]
+    recurse = true
