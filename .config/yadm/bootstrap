@@ -85,6 +85,7 @@ sudo pacman -S --noconfirm --needed \
                 xorg-xrandr \
                 xorg-xset \
                 yarn \
+                yq \
                 zathura \
                 zathura-pdf-mupdf \
                 zip \
@@ -158,6 +159,7 @@ source /usr/share/nvm/init-nvm.sh
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # create folder for nvim
 mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/nvim/ctags"
+touch "${XDG_CONFIG_HOME:-$HOME/.config}/pythonrc"
 
 echo "=============="
 echo "==== DONE ===="
