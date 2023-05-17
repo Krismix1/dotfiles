@@ -46,6 +46,7 @@ sudo pacman -S --noconfirm --needed \
                 kubectx \
                 libnotify \
                 libreoffice \
+                lldb \
                 maim \
                 man-db \
                 neovim \
@@ -65,6 +66,7 @@ sudo pacman -S --noconfirm --needed \
                 python3 \
                 ripgrep \
                 rofi \
+                rust-analyzer \
                 scrot \
                 slock \
                 sxiv \

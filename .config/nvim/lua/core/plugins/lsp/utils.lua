@@ -66,6 +66,40 @@ function M.keybindings(bufnr)
     end, { desc = "Format current buffer with LSP" })
 
     vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+    local wk = require("which-key")
+    wk.register({
+        d = {
+            name = "Debug",
+            e = {
+                name = "Execute",
+                r = { "<cmd>RustDebuggables<CR>", "Rust" },
+            },
+            b = {
+                name = "Breakpoints",
+                l = { "<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint Line" },
+            },
+            s = {
+                name = "Step",
+                n = { "<cmd> DapStepInto <CR>", "Next" },
+                o = { "<cmd> DapStepOver <CR>", "Over" },
+                O = { "<cmd> DapStepOut <CR>", "Out" },
+                c = { "<cmd> DapContinue <CR>", "Continue" },
+                Z = { "<cmd> DapTerminate <CR>", "Terminate" },
+            },
+            v = {
+                name = "Views",
+                s = {
+                    function()
+                        local widgets = require("dap.ui.widgets")
+                        local sidebar = widgets.sidebar(widgets.scopes)
+                        sidebar.open()
+                    end,
+                    "Open debugging sidebar",
+                },
+            },
+        },
+    }, { prefix = "<leader>", mode = "n", buffer = bufnr })
 end
 
 return M

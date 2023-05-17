@@ -8,7 +8,7 @@ local M = {
     config = function()
         -- neodev needs to be setup before lspconfig
         require("neodev").setup({
-            library = { plugins = { "neotest" }, types = true },
+            library = { plugins = { "neotest", "nvim-dap-ui" }, types = true },
         })
         require("core.plugins.lsp.lsp")
     end,
