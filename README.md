@@ -5,7 +5,7 @@ Installation and the dotfiles are to be managed with [yadm](https://yadm.io/), t
 Thus, if you have a completely fresh install of Arch Linux, do the following:
 
 ```sh
-curl -fLo /usr/local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x /usr/local/bin/yadm
+sudo pacman -S yadm
 yadm clone https://github.com/Krismix1/dotfiles
 yadm bootstrap
 ```
