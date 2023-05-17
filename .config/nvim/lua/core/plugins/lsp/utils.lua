@@ -85,7 +85,6 @@ function M.keybindings(bufnr)
                 o = { "<cmd> DapStepOver <CR>", "Over" },
                 O = { "<cmd> DapStepOut <CR>", "Out" },
                 c = { "<cmd> DapContinue <CR>", "Continue" },
-                Z = { "<cmd> DapTerminate <CR>", "Terminate" },
             },
             v = {
                 name = "Views",
@@ -98,6 +97,7 @@ function M.keybindings(bufnr)
                     "Open debugging sidebar",
                 },
             },
+            Z = { "<cmd> DapTerminate <CR>", "Terminate" },
         },
     }, { prefix = "<leader>", mode = "n", buffer = bufnr })
 end
