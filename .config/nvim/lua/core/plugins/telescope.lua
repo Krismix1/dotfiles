@@ -29,7 +29,6 @@ local M = {
                 },
                 file_ignore_patterns = { ".git/" },
                 wrap_results = true,
-                sorting_strategy = "ascending",
             },
             extensions = {
                 fzf = {
