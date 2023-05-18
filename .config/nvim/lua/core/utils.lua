@@ -31,7 +31,7 @@ M.exists = function(file)
             return true
         end
     end
-    return ok, err
+    return ok
 end
 
 M.mergeTables = function(table1, table2)
