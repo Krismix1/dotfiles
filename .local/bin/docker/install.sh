@@ -3,6 +3,7 @@ set -e
 
 sudo pacman -S --noconfirm --needed \
                 docker \
+                docker-buildx \
                 docker-compose
 
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
