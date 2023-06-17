@@ -78,6 +78,7 @@ sudo pacman -S --noconfirm --needed \
                 udisks2 \
                 unclutter \
                 unzip \
+                usbutils \
                 vlc \
                 wget \
                 xclip \
