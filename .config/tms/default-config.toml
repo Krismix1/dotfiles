@@ -1,0 +1,5 @@
+search_paths = ['/home/cristi/projects/languagewire']
+excluded_dirs = [
+    '.bare',
+    'node_modules',
+]
