@@ -14,8 +14,6 @@ local M = {
     },
     config = function()
         -- TODO still not working perfectly and missing some keybinds
-        require("dap-python").setup(".venv/bin/python")
-        require("dap-python").test_runner = "pytest"
         require("neotest").setup({
             output = { enabled = true },
             adapters = {

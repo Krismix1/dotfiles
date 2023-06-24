@@ -1,6 +1,5 @@
 local nvim_lsp = require("lspconfig")
 local lsp_utils = require("core.plugins.lsp.utils")
-local utils = require("core.utils")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- enable completion with cmp
@@ -16,8 +15,7 @@ local servers = {
     "lua_ls",
     "lemminx",
     "marksman",
-    "pylsp",
-    -- "pyright", -- not currently working
+    "pyright",
     "rust_analyzer",
     "terraformls",
     "texlab",
@@ -37,52 +35,15 @@ for _, lsp in ipairs(servers) do
             lsp_utils.custom_lsp_attach(client)
             lsp_utils.keybindings(bufnr)
         end,
-        -- before_init = function(_, config)
-        --   if lsp == "pyright" then
-        --     config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
-        --   end
-        -- end,
+        before_init = function(_, config)
+            if lsp == "pyright" then
+                config.settings.python.pythonPath = lsp_utils.get_python_path(config.root_dir)
+            end
+        end,
         capabilities = capabilities,
         flags = { debounce_text_changes = 150 },
     })
 end
-
-local venv = utils.exists("./.venv/") and "./.venv" or nil
-nvim_lsp.pylsp.setup({
-    cmd = { "pylsp", "--log-file", "/tmp/pylsp.log", "-v" },
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-        lsp_utils.custom_lsp_attach(client)
-        lsp_utils.keybindings(bufnr)
-    end,
-    cmd_env = {
-        VIRTUAL_ENV = venv,
-        PATH = require("lspconfig/util").path.join(venv, "bin") .. ":" .. vim.env.PATH,
-    },
-    enable = true,
-    settings = {
-        pylsp = {
-            configurationSources = {},
-            plugins = {
-                jedi = {
-                    extra_paths = { "./dags" },
-                    environment = venv,
-                    enabled = true,
-                },
-                pydocstyle = { enabled = false },
-                pylint = { enabled = false },
-                rope = { enabled = false },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
-                yapf = { enabled = false },
-                mccabe = { enabled = false },
-                pylsp_mypy = { enabled = false },
-                pylsp_black = { enabled = false },
-                pylsp_isort = { enabled = false },
-            },
-        },
-    },
-})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     -- Enable underline, use default values

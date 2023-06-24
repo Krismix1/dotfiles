@@ -63,8 +63,6 @@ local M = {
                         "-d",
                         "missing-class-docstring",
                         "-d",
-                        "W1514", -- open without explicit encoding
-                        "-d",
                         "too-few-public-methods",
                         "-d",
                         "line-too-long",
@@ -86,6 +84,7 @@ local M = {
                 }),
                 nls.builtins.diagnostics.ruff.with({ extra_args = { "--ignore", "E501" } }), -- ignore line length
                 nls.builtins.formatting.xmllint,
+                nls.builtins.diagnostics.mypy,
             },
         })
     end,

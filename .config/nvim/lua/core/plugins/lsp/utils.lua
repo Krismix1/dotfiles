@@ -74,6 +74,12 @@ function M.keybindings(bufnr)
             e = {
                 name = "Execute",
                 r = { "<cmd>RustDebuggables<CR>", "Rust" },
+                p = {
+                    function()
+                        require("dap-python").test_method()
+                    end,
+                    "Python",
+                },
             },
             b = {
                 name = "Breakpoints",
