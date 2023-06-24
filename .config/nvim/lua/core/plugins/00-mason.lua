@@ -82,7 +82,7 @@ local M = {
                     end,
                     prefer_local = ".venv/bin",
                 }),
-                nls.builtins.diagnostics.ruff.with({ extra_args = { "--ignore", "E501" } }), -- ignore line length
+                nls.builtins.diagnostics.ruff,
                 nls.builtins.formatting.xmllint,
                 nls.builtins.diagnostics.mypy,
             },
