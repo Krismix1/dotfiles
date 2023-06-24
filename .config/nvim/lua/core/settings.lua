@@ -15,7 +15,7 @@ M.treesitter_ensure_installed = {
     "gitignore",
     "go",
     -- "hcl",
-    "help",
+    "vimdoc",
     "html",
     "java",
     "javascript",
