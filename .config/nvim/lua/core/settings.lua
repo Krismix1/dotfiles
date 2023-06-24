@@ -49,7 +49,6 @@ M.mason_tool_installer_ensure_installed = {
     "mypy",
     "prettier",
     "pydocstyle",
-    "pylint",
     "pyright",
     "ruff",
     -- "shellcheck",
