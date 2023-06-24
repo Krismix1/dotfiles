@@ -19,129 +19,130 @@ sudo pacman -Syuu --noconfirm
 # dig is part of bind-tools
 # hostname is part of inetutils
 sudo pacman -S --noconfirm --needed \
-                alacritty \
-                base-devel \
-                bc \
-                bind-tools \
-                chromium \
-                cargo-nextest \
-                ctags \
-                curl \
-                dunst \
-                feh \
-                fd \
-                firefox-developer-edition \
-                fzf \
-                gdu \
-                git-delta \
-                gnome-themes-extra \
-                go \
-                htop \
-                i3-wm \
-                i3lock \
-                inetutils \
-                jq \
-                k9s \
-                kubectl \
-                kubectx \
-                libnotify \
-                libreoffice \
-                lldb \
-                maim \
-                man-db \
-                neovim \
-                net-tools \
-                nm-connection-editor \
-                noto-fonts-cjk \
-                ntfs-3g \
-                openssh \
-                picom \
-                pulseaudio-alsa \
-                pulsemixer \
-                pyenv \
-                python-pip \
-                python-poetry \
-                python-pynvim \
-                python-pywal \
-                python3 \
-                ripgrep \
-                rofi \
-                rust-analyzer \
-                scrot \
-                slock \
-                sxiv \
-                thunar \
-                tmux \
-                ttf-fira-code \
-                ttf-iosevka-nerd \
-                ttf-jetbrains-mono-nerd \
-                udisks2 \
-                unclutter \
-                unzip \
-                usbutils \
-                vlc \
-                wget \
-                xclip \
-                xdotool \
-                xorg-mkfontscale \
-                xorg-server \
-                xorg-xinit \
-                xorg-xrandr \
-                xorg-xset \
-                yarn \
-                yq \
-                zathura \
-                zathura-pdf-mupdf \
-                zip \
-                zsh \
-                zsh-syntax-highlighting
+	alacritty \
+	base-devel \
+	bc \
+	bind-tools \
+	chromium \
+	cargo-nextest \
+	ctags \
+	curl \
+	dunst \
+	fd \
+	feh \
+	firefox-developer-edition \
+	flameshot \
+	fzf \
+	gdu \
+	git-delta \
+	gnome-themes-extra \
+	go \
+	htop \
+	i3-wm \
+	i3lock \
+	inetutils \
+	jq \
+	k9s \
+	kubectl \
+	kubectx \
+	libnotify \
+	libreoffice \
+	lldb \
+	maim \
+	man-db \
+	neovim \
+	net-tools \
+	nm-connection-editor \
+	noto-fonts-cjk \
+	ntfs-3g \
+	openssh \
+	picom \
+	pulseaudio-alsa \
+	pulsemixer \
+	pyenv \
+	python-pip \
+	python-poetry \
+	python-pynvim \
+	python-pywal \
+	python3 \
+	ripgrep \
+	rofi \
+	rust-analyzer \
+	rustup \
+	scrot \
+	slock \
+	sxiv \
+	thunar \
+	tmux \
+	ttf-fira-code \
+	ttf-iosevka-nerd \
+	ttf-jetbrains-mono-nerd \
+	udisks2 \
+	unclutter \
+	unzip \
+	usbutils \
+	vlc \
+	wget \
+	xclip \
+	xdotool \
+	xorg-mkfontscale \
+	xorg-server \
+	xorg-xinit \
+	xorg-xrandr \
+	xorg-xset \
+	yarn \
+	yq \
+	zathura \
+	zathura-pdf-mupdf \
+	zip \
+	zsh \
+	zsh-syntax-highlighting
 
-if pacman -Qs yay > /dev/null ; then
-    echo "Yay is already installed, moving on..."
+if pacman -Qs yay >/dev/null; then
+	echo "Yay is already installed, moving on..."
 else
-    pushd /tmp
-    rm -rf yay
-    git clone https://aur.archlinux.org/yay.git
-    pushd yay
-    makepkg -si --noconfirm
-    popd
-    rm -rf yay
-    popd
+	pushd /tmp
+	rm -rf yay
+	git clone https://aur.archlinux.org/yay.git
+	pushd yay
+	makepkg -si --noconfirm
+	popd
+	rm -rf yay
+	popd
 fi
 
+# Spotify usually requires manual work to install...
+# https://aur.archlinux.org/packages/spotify
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
-                bfg \
-                bitwarden-cli \
-                catppuccin-gtk-theme \
-                dive \
-                gotop \
-                insomnia-bin \
-                lazygit \
-                lf \
-                lua-format \
-                mullvad-vpn-bin \
-                nvm \
-                polybar \
-                spicetify-cli \
-                spotify \
-                tela-icon-theme-bin \
-                tmuxinator \
-                ttf-icomoon-feather \
-                ttf-twemoji \
-                zsh-fast-syntax-highlighting
-
+	bfg \
+	bitwarden-cli \
+	catppuccin-gtk-theme \
+	dive \
+	gotop \
+	insomnia-bin \
+	lazygit \
+	lf \
+	lua-format \
+	mullvad-vpn-bin \
+	nvm \
+	polybar \
+	spicetify-cli \
+	tela-icon-theme-bin \
+	tmuxinator \
+	ttf-icomoon-feather \
+	ttf-twemoji \
+	zsh-fast-syntax-highlighting
 
 # ====================================
 # Polybar font
 # ====================================
-
 
 # configure ssh agent
 systemctl --user enable --now ssh-agent.service
 
 # configure touchpad settings
 if [[ $(hostname -s) = asgard ]]; then
-sudo tee /etc/X11/xorg.conf.d/30-touchpad.conf > /dev/null << EOF
+	sudo tee /etc/X11/xorg.conf.d/30-touchpad.conf >/dev/null <<EOF
 Section "InputClass"
         Identifier "libinput touchpad catchall"
         MatchIsTouchpad "on"
@@ -168,7 +169,13 @@ mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/nvim/ctags"
 touch "${XDG_CONFIG_HOME:-$HOME/.config}/pythonrc"
 
 # Tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+TPM_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/plugins/tpm"
+if [ ! -d "${TPM_PATH}" ]; then
+	git clone https://github.com/tmux-plugins/tpm "${TPM_PATH}"
+fi
+
+rustup install stable
+cargo install tmux-sessionizer
 
 echo "=============="
 echo "==== DONE ===="

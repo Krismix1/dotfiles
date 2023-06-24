@@ -10,5 +10,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
                 google-chrome \
                 google-cloud-sdk \
                 google-cloud-sdk-gke-gcloud-auth-plugin \
-                quickredis \
-                teams
+                microsoft-edge-stable-bin \
+                quickredis
+
