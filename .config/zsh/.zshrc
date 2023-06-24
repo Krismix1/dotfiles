@@ -166,8 +166,4 @@ bindkey '^e' edit-command-line
 export PATH="${PATH}:/opt/google-cloud-sdk/bin"
 export NVM_DIR="$HOME/.config/nvm"
 
-
-# ------- Keyboard fixes ------
-# Remap Caps-lock key to Escape, for using VIM
-
 [[ ! -r /home/cristi/.opam/opam-init/init.zsh ]] || source /home/cristi/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
