@@ -14,6 +14,7 @@ local servers = {
     "gopls",
     "jsonls",
     "lua_ls",
+    "lemminx",
     "marksman",
     "pylsp",
     -- "pyright", -- not currently working

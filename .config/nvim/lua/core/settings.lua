@@ -15,7 +15,6 @@ M.treesitter_ensure_installed = {
     "gitignore",
     "go",
     -- "hcl",
-    "vimdoc",
     "html",
     "java",
     "javascript",
@@ -33,6 +32,7 @@ M.treesitter_ensure_installed = {
     "toml",
     "typescript",
     "vim",
+    "vimdoc",
     "yaml",
 }
 

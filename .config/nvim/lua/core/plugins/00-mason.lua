@@ -69,7 +69,7 @@ local M = {
                         "-d",
                         "line-too-long",
                         "--extension-pkg-whitelist",
-                        "pydantic",
+                        "pydantic,lxml",
                     },
                 }),
                 nls.builtins.formatting.black.with({
@@ -85,6 +85,7 @@ local M = {
                     prefer_local = ".venv/bin",
                 }),
                 nls.builtins.diagnostics.ruff.with({ extra_args = { "--ignore", "E501" } }), -- ignore line length
+                nls.builtins.formatting.xmllint,
             },
         })
     end,
