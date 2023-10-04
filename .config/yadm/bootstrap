@@ -116,9 +116,11 @@ fi
 yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm \
 	bfg \
 	bitwarden-cli \
-	catppuccin-gtk-theme \
+	catppuccin-gtk-theme-mocha \
 	dive \
+	gnome-themes-extra \
 	gotop \
+	gtk-engine-murrine \
 	insomnia-bin \
 	lazygit \
 	lf \
