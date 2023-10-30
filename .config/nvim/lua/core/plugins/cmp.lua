@@ -31,34 +31,18 @@ local M = {
         local cmp = require("cmp")
         local lspkind = require("lspkind")
         cmp.setup({
-            formatting = {
-                format = lspkind.cmp_format({
-                    mode = "symbol", -- show only symbol annotations
-                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                    ellipsis_char = "...",
-                }),
-            },
-        })
-        cmp.setup({
             snippet = {
                 expand = function(args)
                     vim.fn["vsnip#anonymous"](args.body)
                 end,
             },
             formatting = {
-                format = function(entry, vim_item)
-                    -- fancy icons and a name of kind
-                    vim_item.kind = lspkind.presets.default[vim_item.kind] .. " " .. vim_item.kind
-                    -- set a name for each source
-                    vim_item.menu = ({
-                        buffer = "[Buffer]",
-                        nvim_lsp = "[LSP]",
-                        vsnip = "[Snippet]",
-                        nvim_lua = "[Lua]",
-                        latex_symbols = "[Latex]",
-                    })[entry.source.name]
-                    return vim_item
-                end,
+                format = lspkind.cmp_format({
+                    mode = "symbol_text", -- show only symbol annotations
+                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    ellipsis_char = "...",
+                    symbol_map = { Copilot = "" },
+                }),
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -89,6 +73,7 @@ local M = {
                 end, { "i", "s" }),
             }),
             sources = cmp.config.sources({
+                { name = "copilot" },
                 { name = "nvim_lsp" },
                 { name = "vsnip" },
                 { name = "buffer", keyword_length = 5 },
@@ -109,6 +94,8 @@ local M = {
                 },
             },
         })
+
+        vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
     end,
 }
 
