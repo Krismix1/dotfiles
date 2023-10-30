@@ -50,7 +50,6 @@ local M = {
                     end,
                     debounce = 1000,
                     prefer_local = ".venv/bin",
-                    method = nls.methods.DIAGNOSTICS_ON_SAVE,
                     -- pylint is slow for big projects, let's give it up to 10s
                     timeout = 10000,
                     extra_args = {
@@ -76,15 +75,14 @@ local M = {
                     end,
                     prefer_local = ".venv/bin",
                 }),
-                nls.builtins.formatting.isort.with({
+                nls.builtins.diagnostics.ruff,
+                nls.builtins.formatting.xmllint,
+                nls.builtins.diagnostics.mypy.with({
                     cwd = function(params)
                         return vim.fn.fnamemodify(params.bufname, ":h")
                     end,
                     prefer_local = ".venv/bin",
                 }),
-                nls.builtins.diagnostics.ruff,
-                nls.builtins.formatting.xmllint,
-                nls.builtins.diagnostics.mypy,
             },
         })
     end,
