@@ -11,8 +11,6 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 
 sudo systemctl enable --now docker.service
 sudo groupadd docker
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
 sudo usermod -aG docker $USER
 
 # Optional - Configure data directory
