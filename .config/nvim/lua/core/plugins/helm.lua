@@ -1,6 +1,6 @@
 -- https://github.com/mrjosh/helm-ls
 local M = {
-    "towolf/vim-helm",
+    "Krismix1/vim-helm",
     dependencies = {
         "neovim/nvim-lspconfig",
     },
