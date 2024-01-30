@@ -15,17 +15,6 @@ local M = {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-        if not configs.helm_ls then
-            configs.helm_ls = {
-                default_config = {
-                    cmd = { "helm_ls", "serve" },
-                    filetypes = { "helm" },
-                    root_dir = function(fname)
-                        return util.root_pattern("Chart.yaml")(fname)
-                    end,
-                },
-            }
-        end
 
         lspconfig.helm_ls.setup({
             filetypes = { "helm" },
@@ -35,6 +24,12 @@ local M = {
                 lsp_utils.keybindings(bufnr)
             end,
             capabilities = capabilities,
+            settings = {
+                ["helm-ls"] = {
+                    valuesFiles = {
+                        "values.yaml",
+                        "values.yml",
+                    },
         })
     end,
 }
