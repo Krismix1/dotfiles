@@ -12,17 +12,39 @@ local M = {
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
         rt.setup({
+            tools = {
+                -- TODO: Doesn't seem to work...
+                -- https://github.com/simrat39/rust-tools.nvim/issues/250#issuecomment-1272264132
+                executor = require("rust-tools/executors").termopen,
+                runnables = {
+                    use_telescope = true,
+                },
+            },
             server = {
                 capabilities = capabilities,
                 on_attach = function(client, bufnr)
                     lsp_utils.custom_lsp_attach(client)
                     lsp_utils.keybindings(bufnr)
 
-                    -- Hover actions
-                    -- vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
                     -- Code action groups
-                    -- vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
-                    -- require'rust-tools'.expand_macro.expand_macro()
+                    vim.keymap.set(
+                        "n",
+                        "<leader>ca",
+                        rt.code_action_group.code_action_group,
+                        { buffer = bufnr, silent = true, desc = "Rust Code Action Group" }
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>cMe",
+                        rt.expand_macro.expand_macro,
+                        { buffer = bufnr, silent = true, desc = "Rust Expand Macro" }
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>cG",
+                        rt.crate_graph.view_crate_graph,
+                        { buffer = bufnr, silent = true, desc = "View Crate Graph" }
+                    )
                 end,
                 --     file_types = { "rust" },
                 --     root_dir= "",

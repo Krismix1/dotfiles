@@ -50,6 +50,7 @@ M.mason_tool_installer_ensure_installed = {
     "pydocstyle",
     "pyright",
     "ruff",
+    -- "rust-analyzer",
     -- "shellcheck",
     "shfmt",
     "stylua",
