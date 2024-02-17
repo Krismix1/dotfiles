@@ -40,6 +40,7 @@ M.treesitter_ensure_installed = {
 M.mason_tool_installer_ensure_installed = {
     "bash-language-server",
     "black",
+    "codelldb",
     "debugpy",
     "dockerfile-language-server",
     "eslint_d",
@@ -50,7 +51,6 @@ M.mason_tool_installer_ensure_installed = {
     "pydocstyle",
     "pyright",
     "ruff",
-    -- "rust-analyzer",
     -- "shellcheck",
     "shfmt",
     "stylua",

@@ -10,7 +10,6 @@ local M = {
         "mfussenegger/nvim-dap",
         "mfussenegger/nvim-dap-python",
         "haydenmeade/neotest-jest",
-        "rouge8/neotest-rust",
     },
     config = function()
         -- TODO still not working perfectly and missing some keybinds
@@ -18,7 +17,10 @@ local M = {
             output = { enabled = true },
             adapters = {
                 require("neotest-python")({
-                    args = { "--integration", --[[ "--integration-skip-ready", ]] "-vv" },
+                    args = {
+                        "--integration", --[[ "--integration-skip-ready", ]]
+                        "-vv",
+                    },
                     dap = {
                         justMyCode = false,
                         console = "integratedTerminal",
@@ -33,7 +35,7 @@ local M = {
                 --         return vim.fn.getcwd()
                 --     end,
                 -- }),
-                require("neotest-rust"),
+                require("rustaceanvim.neotest"),
                 require("neotest-plenary"),
             },
         })
@@ -41,7 +43,7 @@ local M = {
         local ntest = require("neotest")
         vim.keymap.set("n", "<leader>tn", ntest.run.run, { desc = "Run nearest test" })
         vim.keymap.set("n", "<leader>td", function()
-            ntest.run.run({ strategy = "dap" })
+            ntest.run.run({ strategy = "dap", suite = false })
         end, { desc = "Debug nearest" })
         vim.keymap.set("n", "<leader>tf", function()
             ntest.run.run(vim.fn.expand("%"))

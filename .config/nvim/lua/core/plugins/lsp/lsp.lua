@@ -16,7 +16,6 @@ local servers = {
     "lemminx",
     "marksman",
     "pyright",
-    "rust_analyzer",
     "terraformls",
     "texlab",
     "tsserver",

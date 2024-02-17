@@ -77,6 +77,7 @@ local M = {
                 }),
                 nls.builtins.diagnostics.ruff,
                 nls.builtins.formatting.xmllint,
+                nls.builtins.formatting.rustfmt,
                 nls.builtins.diagnostics.mypy.with({
                     cwd = function(params)
                         return vim.fn.fnamemodify(params.bufname, ":h")

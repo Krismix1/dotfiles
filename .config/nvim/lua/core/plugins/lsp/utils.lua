@@ -67,13 +67,15 @@ function M.keybindings(bufnr)
 
     vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
+    -- TODO: After neovim 10, bind <leader>h to vim.lsp.inlay_hint.enable(...)
+    -- https://github.com/mrcjkb/rustaceanvim/discussions/46#discussioncomment-7540693
     local wk = require("which-key")
     wk.register({
         d = {
             name = "Debug",
             e = {
                 name = "Execute",
-                r = { "<cmd>RustDebuggables<CR>", "Rust" },
+                r = { "<cmd>RustLsp debuggables<CR>", "Rust" },
                 p = {
                     function()
                         require("dap-python").test_method()
