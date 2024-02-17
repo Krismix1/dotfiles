@@ -15,6 +15,21 @@ local M = {
                 lualine_b = { "branch" },
                 -- lualine_c = {'filename'},
                 lualine_x = {
+                    {
+                        "copilot",
+                        symbols = {
+                            status = {
+                                icons = {
+                                    sleep = " 󰒲", -- auto-trigger disabled
+                                },
+                                hl = {
+                                    sleep = "#077E8C",
+                                },
+                            },
+                        },
+                        show_colors = true,
+                        show_loading = true,
+                    },
                     { "diagnostics", sources = { "nvim_diagnostic" } },
                     "filetype",
                 },
