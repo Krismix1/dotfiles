@@ -42,7 +42,7 @@ local M = {
         })
 
         local nvim_tree = require("nvim-tree.api").tree
-        vim.keymap.set("n", "<C-_>", function()
+        vim.keymap.set("n", "<C-/>", function()
             nvim_tree.toggle({ find_file = true, update_root = false, current_window = false })
         end)
     end,
