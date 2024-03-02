@@ -15,6 +15,7 @@ local servers = {
     "lua_ls",
     "lemminx",
     "marksman",
+    "nxls", -- https://github.com/nrwl/nx-console/issues/2019
     "pyright",
     "terraformls",
     "texlab",

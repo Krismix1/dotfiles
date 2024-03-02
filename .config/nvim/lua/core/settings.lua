@@ -47,6 +47,7 @@ M.mason_tool_installer_ensure_installed = {
     "json-lsp",
     "lua-language-server",
     "marksman",
+    "nxls",
     "prettier",
     "pydocstyle",
     "pyright",
