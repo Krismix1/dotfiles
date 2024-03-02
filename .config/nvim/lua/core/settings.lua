@@ -53,6 +53,7 @@ M.mason_tool_installer_ensure_installed = {
     "ruff",
     -- "shellcheck",
     "shfmt",
+    "sql-formatter",
     "stylua",
     "terraform-ls",
     "texlab",

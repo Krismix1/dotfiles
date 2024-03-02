@@ -15,7 +15,6 @@ local M = {
         local metals_config = require("metals").bare_config()
         metals_config.on_attach = function(client, bufnr)
             -- require("metals").setup_dap()
-            print("hey")
             lsp_utils.custom_lsp_attach(client)
             lsp_utils.keybindings(bufnr)
 

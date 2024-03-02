@@ -2,9 +2,9 @@ local M = {}
 
 -- detect python venv
 -- https://github.com/neovim/nvim-lspconfig/issues/500#issuecomment-851247107
-local util = require("lspconfig/util")
-local path = util.path
 function M.get_python_path(workspace)
+    local util = require("lspconfig/util")
+    local path = util.path
     -- Use activated virtualenv.
     if vim.env.VIRTUAL_ENV then
         return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
@@ -49,7 +49,7 @@ function M.keybindings(bufnr)
     nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
     nmap("<leader>f", function()
-        vim.lsp.buf.format({ async = true })
+        require("conform").format({ bufnr = bufnr })
     end, "[F]ormat buffer")
 
     -- Lesser used LSP functionality

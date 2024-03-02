@@ -1,4 +1,12 @@
 -- fast statusline with good theming/lsp support
+local lint_progress = function()
+  local linters = require("lint").get_running()
+  if #linters == 0 then
+      return "󰦕"
+  end
+  return "󱉶 " .. table.concat(linters, ", ")
+end
+
 local M = {
     "nvim-lualine/lualine.nvim",
     config = function()
@@ -33,7 +41,7 @@ local M = {
                     { "diagnostics", sources = { "nvim_diagnostic" } },
                     "filetype",
                 },
-                lualine_y = { "progress" },
+                lualine_y = { lint_progress },
                 lualine_z = { "location" },
             },
         })
