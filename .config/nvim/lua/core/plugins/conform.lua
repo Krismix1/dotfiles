@@ -19,6 +19,7 @@ local M = {
                 javascript = { { "prettierd", "prettier" } },
                 typescript = { { "prettierd", "prettier" } },
                 html = { { "prettierd", "prettier" } },
+                angular = { { "prettierd", "prettier" } },
                 scss = { { "prettierd", "prettier" } },
                 css = { { "prettierd", "prettier" } },
                 yaml = { { "prettierd", "prettier" } },

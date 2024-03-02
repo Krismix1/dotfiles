@@ -24,3 +24,7 @@ vim.cmd([[
     autocmd Filetype * setlocal omnifunc=v:lua.vim.lsp.omnifunc
   augroup end
 ]])
+
+vim.cmd([[
+  autocmd BufRead,BufEnter *.component.html set filetype=angular.html
+]])

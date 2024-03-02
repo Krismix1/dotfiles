@@ -1,4 +1,5 @@
 local nvim_lsp = require("lspconfig")
+local util = require("lspconfig.util")
 local lsp_utils = require("core.plugins.lsp.utils")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -44,6 +45,17 @@ for _, lsp in ipairs(servers) do
         flags = { debounce_text_changes = 150 },
     })
 end
+
+nvim_lsp.angularls.setup({
+    on_attach = function(client, bufnr)
+        lsp_utils.custom_lsp_attach(client)
+        lsp_utils.keybindings(bufnr)
+    end,
+    root_dir = util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
+    filetypes = { "angular", "typescript" },
+    capabilities = capabilities,
+    flags = { debounce_text_changes = 150 },
+})
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     -- Enable underline, use default values

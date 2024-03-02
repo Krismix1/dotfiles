@@ -3,6 +3,7 @@ local M = {}
 M.theme = "catppuccin"
 
 M.treesitter_ensure_installed = {
+    "angular",
     "bash",
     "c",
     "c_sharp",
