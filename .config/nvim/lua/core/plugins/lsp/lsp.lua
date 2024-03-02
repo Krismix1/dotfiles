@@ -7,7 +7,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local servers = {
-    "angularls",
     "bashls",
     "cssls",
     "dockerls",
@@ -52,7 +51,7 @@ nvim_lsp.angularls.setup({
         lsp_utils.keybindings(bufnr)
     end,
     root_dir = util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
-    filetypes = { "angular", "typescript" },
+    filetypes = { "angular.html", "typescript" },
     capabilities = capabilities,
     flags = { debounce_text_changes = 150 },
 })
