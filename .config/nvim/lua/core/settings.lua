@@ -31,10 +31,12 @@ M.treesitter_ensure_installed = {
     "rust",
     "scala",
     "scss",
+    "terraform",
     "toml",
     "typescript",
     "vim",
     "vimdoc",
+    "vue",
     "yaml",
 }
 
