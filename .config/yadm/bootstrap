@@ -118,6 +118,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 	bitwarden-cli \
 	catppuccin-gtk-theme-mocha \
 	dive \
+	firefox-tridactyl-native-bin \
 	gnome-themes-extra \
 	gotop \
 	gtk-engine-murrine \
