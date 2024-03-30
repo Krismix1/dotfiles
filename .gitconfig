@@ -33,4 +33,6 @@
 	st = status --short
 	amend = commit --amend --no-edit --reset-author
 	wtl = worktree list
-	wta = "!bash -ec 'git worktree add \"$1\" $(git rev-parse master) -b \"$1\"'"
+	wta = worktree add
+	wtab = "!bash -ec 'if (( $# == 0)); then echo >&2 git wtab: 1 parameter expected; exit 2; fi; branch=$2; git worktree add \"$1\" $(git rev-parse ${branch:-master}) -b \"$1\"'"
+	wtar = "!bash -ec 'if (( $# != 1)); then echo >&2 git wtar: 1 parameter expected; exit 2; fi; git worktree add --guess-remote --track \"$1\" \"$1\"'"
