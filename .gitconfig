@@ -15,14 +15,22 @@
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 [diff]
-    tool = vimdiff
+	tool = vimdiff
+	colorMoved = default
 [merge]
-    summary = true
-    log = true
-    tool = vimdiff
-    conflictstyle = diff3
-    prompt = false
+	summary = true
+	log = true
+	tool = vimdiff
+	conflictstyle = diff3
+	prompt = false
 [rerere]
-    enabled = true
+	enabled = true
 [submodule]
-    recurse = true
+	recurse = true
+[alias]
+	lg = log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	lr = log --walk-reflogs --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'
+	st = status --short
+	amend = commit --amend --no-edit --reset-author
+	wtl = worktree list
+	wta = "!bash -ec 'git worktree add \"$1\" $(git rev-parse master) -b \"$1\"'"
