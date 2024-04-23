@@ -27,6 +27,7 @@ sudo pacman -S --noconfirm --needed \
 	cargo-nextest \
 	ctags \
 	curl \
+	difftastic \
 	dunst \
 	fd \
 	feh \
