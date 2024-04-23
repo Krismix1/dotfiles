@@ -97,6 +97,7 @@ plugins=(
   tmuxinator
   vi-mode
   fzf
+  terraform
 )
 
 source $ZSH/oh-my-zsh.sh
