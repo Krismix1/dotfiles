@@ -12,7 +12,7 @@ sanitize tridactyllocal tridactylsync
 
 " Just use a blank page for new tab. It would be nicer to use the standard
 " Firefox homepage, but Tridactyl doesn't support this yet.
-set newtab about:blank
+" set newtab about:blank
 
 " Use vim in tmux for editor.
 " set editorcmd terminal -e tmux -u new vim -S /home/cristi/.vim/tridactyl.vim
