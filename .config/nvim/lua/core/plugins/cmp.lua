@@ -88,7 +88,7 @@ local M = {
                 comparators = {
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
-                    require("copilot_cmp.comparators").prioritize,
+                    -- require("copilot_cmp.comparators").prioritize,
                     cmp.config.compare.score,
                     require("cmp-under-comparator").under,
                     cmp.config.compare.kind,
