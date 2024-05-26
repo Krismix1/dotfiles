@@ -25,9 +25,11 @@ local M = {
             capabilities = capabilities,
             settings = {
                 ["helm-ls"] = {
+                    logLevel = "info",
                     valuesFiles = {
-                        "values.yaml",
-                        "values.yml",
+                        mainValuesFile = "values.yaml",
+                        lintOverlayValuesFile = "",
+                        additionalValuesFilesGlobPattern = "values.y?ml,/values/common.y?ml,/values/*development.y?ml",
                     },
                 },
             },
