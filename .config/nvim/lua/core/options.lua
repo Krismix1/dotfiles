@@ -87,7 +87,6 @@ vim.o.autoindent = true
 vim.o.hidden = true
 -- Don't beep
 vim.o.visualbell = true -- Don't beep
-vim.o.t_vb = nil
 vim.o.errorbells = false -- Don't beep
 vim.o.concealcursor = nil -- Never conceal anything on current line
 vim.o.lazyredraw = true -- Speedup large files and macros
@@ -96,8 +95,6 @@ vim.o.showtabline = 2 -- Always show tabline
 vim.o.shortmess = vim.o.shortmess .. "c" -- Don't give ins-completion-menu messages
 vim.o.signcolumn = "yes" -- Always show signcolumn
 
-vim.o.t_8f = "[38;2;%lu;%lu;%lum"
-vim.o.t_8b = "[48;2;%lu;%lu;%lum"
 vim.cmd([[filetype plugin on]])
 vim.opt.background = "dark"
 
