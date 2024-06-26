@@ -62,6 +62,3 @@ windows:
   - k9s:
       panes:
         - k9s
-
-# https://github.com/tmuxinator/tmuxinator/issues/916
-on_project_exit: tmux attach-session -t lw -c /home/cristi/projects/languagewire
