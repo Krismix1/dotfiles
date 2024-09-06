@@ -4,7 +4,7 @@ local prefer_venv_local = function(linter, lint_cmd)
     if utils.exists("./.venv/bin/" .. lint_cmd) then
         vim.notify_once("Running `" .. lint_cmd .. "` in .venv")
         linter.cmd = python_cmd
-        linter.args = vim.list_extend({ "-m", lint_cmd }, linter.args)
+        linter.args = vim.list_extend({"-m", lint_cmd}, linter.args)
     else
         vim.notify_once("Running `" .. lint_cmd .. " ` without .venv")
     end
@@ -14,34 +14,22 @@ local M = {
     "mfussenegger/nvim-lint",
     config = function()
         require("lint").linters_by_ft = {
-            python = { "ruff", "mypy", "pylint" },
-            typescript = { "eslint_d" },
-            javascript = { "eslint_d" },
+            python = {"ruff", "mypy", "pylint"},
+            typescript = {"eslint_d"},
+            javascript = {"eslint_d"}
         }
 
         local pylint = require("lint").linters.pylint
         pylint.args = vim.list_extend(pylint.args, {
-            "-d",
-            "missing-function-docstring",
-            "-d",
-            "invalid-name",
-            "-d",
-            "missing-module-docstring",
-            "-d",
-            "missing-class-docstring",
-            "-d",
+            "-d", "missing-function-docstring", "-d", "invalid-name", "-d",
+            "missing-module-docstring", "-d", "missing-class-docstring", "-d",
             "W1514", -- open without explicit encoding
-            "-d",
-            "too-few-public-methods",
-            "-d",
-            "line-too-long",
+            "-d", "too-few-public-methods", "-d", "line-too-long"
         })
 
         local mypy = require("lint").linters.mypy
         mypy.args = vim.list_extend(mypy.args, {
-            "--ignore-missing-imports",
-            "--disable-error-code",
-            "import-untyped",
+            "--ignore-missing-imports", "--disable-error-code", "import-untyped"
         })
 
         local utils = require("core.utils")
@@ -52,7 +40,7 @@ local M = {
             prefer_venv_local(pylint, "pylint")
         end
 
-        local slow_linters = { "mypy", "pylint" }
+        local slow_linters = {"mypy", "pylint"}
         local all_but_slow = {}
         for key, values in pairs(require("lint").linters_by_ft) do
             values = vim.tbl_filter(function(linter)
@@ -61,18 +49,18 @@ local M = {
             all_but_slow[key] = values
         end
 
-        vim.api.nvim_create_autocmd({ "BufWritePost", "BufWinEnter", "BufReadPost" }, {
-            callback = function()
-                require("lint").try_lint()
-            end,
+        vim.api.nvim_create_autocmd({"BufWritePost"}, {
+            callback = function() require("lint").try_lint() end
         })
 
-        vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+        vim.api.nvim_create_autocmd({
+            "InsertLeave", "BufWinEnter", "BufReadPost"
+        }, {
             callback = function()
                 require("lint").try_lint(all_but_slow[vim.bo.filetype])
-            end,
+            end
         })
-    end,
+    end
 }
 
 return M
