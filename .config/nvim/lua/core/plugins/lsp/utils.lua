@@ -11,9 +11,7 @@ function M.get_python_path(workspace)
     end
 
     local match = vim.fn.glob(path.join(workspace, ".venv"))
-    if match ~= "" then
-        return path.join(match, "bin", "python")
-    end
+    if match ~= "" then return path.join(match, "bin", "python") end
 
     -- Fallback to system Python.
     return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
@@ -27,43 +25,48 @@ end
 
 function M.keybindings(bufnr)
     local nmap = function(keys, func, desc)
-        if desc then
-            desc = "LSP: " .. desc
-        end
+        if desc then desc = "LSP: " .. desc end
 
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+        vim.keymap.set("n", keys, func, {buffer = bufnr, desc = desc})
     end
 
     nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
     nmap("<leader>ca", "<cmd>CodeActionMenu<CR>", "[C]ode [A]ction")
 
     nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
-    nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+    nmap("gr", require("telescope.builtin").lsp_references,
+         "[G]oto [R]eferences")
     nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
     nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
-    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-    nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+    nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols,
+         "[D]ocument [S]ymbols")
+    nmap("<leader>ws",
+         require("telescope.builtin").lsp_dynamic_workspace_symbols,
+         "[W]orkspace [S]ymbols")
 
     -- See `:help K` for why this keymap
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
     nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
     nmap("<leader>f", function()
-        require("conform").format({ bufnr = bufnr })
+        require("conform").format({bufnr = bufnr, lsp_format = "fallback"})
     end, "[F]ormat buffer")
 
     -- Lesser used LSP functionality
     nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-    nmap("<leader>wa", vim.lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-    nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+    nmap("<leader>wa", vim.lsp.buf.add_workspace_folder,
+         "[W]orkspace [A]dd Folder")
+    nmap("<leader>wr", vim.lsp.buf.remove_workspace_folder,
+         "[W]orkspace [R]emove Folder")
     nmap("<leader>wl", function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, "[W]orkspace [L]ist Folders")
 
     -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-        vim.lsp.buf.format()
-    end, { desc = "Format current buffer with LSP" })
+    vim.api.nvim_buf_create_user_command(bufnr, "Format",
+                                         function(_) vim.lsp.buf.format() end, {
+        desc = "Format current buffer with LSP"
+    })
 
     vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
@@ -75,24 +78,23 @@ function M.keybindings(bufnr)
             name = "Debug",
             e = {
                 name = "Execute",
-                r = { "<cmd>RustLsp debuggables<CR>", "Rust" },
+                r = {"<cmd>RustLsp debuggables<CR>", "Rust"},
                 p = {
                     function()
                         require("dap-python").test_method()
-                    end,
-                    "Python",
-                },
+                    end, "Python"
+                }
             },
             b = {
                 name = "Breakpoints",
-                l = { "<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint Line" },
+                l = {"<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint Line"}
             },
             s = {
                 name = "Step",
-                n = { "<cmd> DapStepInto <CR>", "Next" },
-                o = { "<cmd> DapStepOver <CR>", "Over" },
-                O = { "<cmd> DapStepOut <CR>", "Out" },
-                c = { "<cmd> DapContinue <CR>", "Continue" },
+                n = {"<cmd> DapStepInto <CR>", "Next"},
+                o = {"<cmd> DapStepOver <CR>", "Over"},
+                O = {"<cmd> DapStepOut <CR>", "Out"},
+                c = {"<cmd> DapContinue <CR>", "Continue"}
             },
             v = {
                 name = "Views",
@@ -101,13 +103,12 @@ function M.keybindings(bufnr)
                         local widgets = require("dap.ui.widgets")
                         local sidebar = widgets.sidebar(widgets.scopes)
                         sidebar.open()
-                    end,
-                    "Open debugging sidebar",
-                },
+                    end, "Open debugging sidebar"
+                }
             },
-            Z = { "<cmd> DapTerminate <CR>", "Terminate" },
-        },
-    }, { prefix = "<leader>", mode = "n", buffer = bufnr })
+            Z = {"<cmd> DapTerminate <CR>", "Terminate"}
+        }
+    }, {prefix = "<leader>", mode = "n", buffer = bufnr})
 end
 
 return M
