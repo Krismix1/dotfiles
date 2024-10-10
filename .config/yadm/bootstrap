@@ -128,6 +128,7 @@ yay -S --needed --removemake --nocleanmenu --nodiffmenu --noeditmenu --noconfirm
 	lf \
 	lua-format \
 	mullvad-vpn-bin \
+	noto-fonts-ar \
 	nvm \
 	polybar \
 	spicetify-cli \
