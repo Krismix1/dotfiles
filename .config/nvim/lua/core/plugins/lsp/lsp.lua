@@ -19,7 +19,7 @@ local servers = {
     "pyright",
     "terraformls",
     "texlab",
-    "tsserver",
+    "ts_ls",
     "yamlls",
 }
 
