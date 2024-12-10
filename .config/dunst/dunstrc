@@ -4,7 +4,6 @@
     follow = none
 
     width = 300
-    # height = 300
     origin = top-right
     offset = 10x50
     scale = 0
@@ -21,7 +20,7 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 3
-  frame_color = "#96cdfb"
+    frame_color = "#96cdfb"
     separator_color = frame
     sort = yes
     font = Source Code Pro 8
