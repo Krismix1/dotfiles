@@ -42,9 +42,13 @@ local M = {
         })
 
         local nvim_tree = require("nvim-tree.api").tree
-        vim.keymap.set("n", "<C-_>", function()
+        local function toggle_tree()
             nvim_tree.toggle({ find_file = true, update_root = false, current_window = false })
-        end)
+        end
+        -- this runs when inside tmux...
+        vim.keymap.set("n", "<C-_>", toggle_tree)
+        -- this runs when outside tmux...
+        vim.keymap.set("n", "<C-/>", toggle_tree)
     end,
 }
 
