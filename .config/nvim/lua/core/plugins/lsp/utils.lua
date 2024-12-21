@@ -23,7 +23,7 @@ function M.custom_lsp_attach(client)
     client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-function M.keybindings(bufnr)
+function M.keybindings(bufnr, client)
     local nmap = function(keys, func, desc)
         if desc then desc = "LSP: " .. desc end
 
@@ -62,16 +62,18 @@ function M.keybindings(bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, "[W]orkspace [L]ist Folders")
 
-    -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, "Format",
-                                         function(_) vim.lsp.buf.format() end, {
-        desc = "Format current buffer with LSP"
-    })
+    if client.server_capabilities.inlayHintProvider then
+        nmap("<leader>h", function()
+            -- https://github.com/nix-community/kickstart-nix.nvim/blob/6b28fa398a69b99318bde099fb9566eead5fa02e/nvim/plugin/autocommands.lua#L94
+            local current_setting = vim.lsp.inlay_hint.is_enabled({
+                bufnr = bufnr
+            })
+            vim.lsp.inlay_hint.enable(not current_setting, {bufnr = bufnr})
+        end, "Toggle inlay [h]int")
+    end
 
     vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 
-    -- TODO: After neovim 10, bind <leader>h to vim.lsp.inlay_hint.enable(...)
-    -- https://github.com/mrcjkb/rustaceanvim/discussions/46#discussioncomment-7540693
     local wk = require("which-key")
     wk.register({
         d = {

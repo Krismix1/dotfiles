@@ -20,7 +20,7 @@ local M = {
             cmd = { "helm_ls", "serve" },
             on_attach = function(client, bufnr)
                 lsp_utils.custom_lsp_attach(client)
-                lsp_utils.keybindings(bufnr)
+                lsp_utils.keybindings(bufnr, client)
             end,
             capabilities = capabilities,
             settings = {

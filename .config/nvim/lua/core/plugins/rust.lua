@@ -11,7 +11,7 @@ local M = {
             server = {
                 on_attach = function(client, bufnr)
                     lsp_utils.custom_lsp_attach(client)
-                    lsp_utils.keybindings(bufnr)
+                    lsp_utils.keybindings(bufnr, client)
                     -- TODO: More bindings https://github.com/mrcjkb/rustaceanvim?tab=readme-ov-file#usage
                 end,
                 default_settings = {

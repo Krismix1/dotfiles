@@ -33,7 +33,7 @@ for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
         on_attach = function(client, bufnr)
             lsp_utils.custom_lsp_attach(client)
-            lsp_utils.keybindings(bufnr)
+            lsp_utils.keybindings(bufnr, client)
         end,
         before_init = function(_, config)
             if lsp == "pyright" then
@@ -48,7 +48,7 @@ end
 nvim_lsp.angularls.setup({
     on_attach = function(client, bufnr)
         lsp_utils.custom_lsp_attach(client)
-        lsp_utils.keybindings(bufnr)
+        lsp_utils.keybindings(bufnr, client)
     end,
     root_dir = util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
     filetypes = { "angular.html", "typescript" },

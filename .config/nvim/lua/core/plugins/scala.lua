@@ -16,7 +16,7 @@ local M = {
         metals_config.on_attach = function(client, bufnr)
             -- require("metals").setup_dap()
             lsp_utils.custom_lsp_attach(client)
-            lsp_utils.keybindings(bufnr)
+            lsp_utils.keybindings(bufnr, client)
 
             -- local map = vim.keymap.set
             -- map("n", "gD", vim.lsp.buf.definition)
