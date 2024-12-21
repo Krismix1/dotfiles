@@ -23,6 +23,8 @@ function M.custom_lsp_attach(client)
     client.server_capabilities.documentRangeFormattingProvider = false
 end
 
+--- @param bufnr integer
+--- @param client vim.lsp.Client
 function M.keybindings(bufnr, client)
     local nmap = function(keys, func, desc)
         if desc then desc = "LSP: " .. desc end
@@ -63,13 +65,53 @@ function M.keybindings(bufnr, client)
     end, "[W]orkspace [L]ist Folders")
 
     if client.server_capabilities.inlayHintProvider then
-        nmap("<leader>h", function()
+        nmap("<leader>ht", function()
             -- https://github.com/nix-community/kickstart-nix.nvim/blob/6b28fa398a69b99318bde099fb9566eead5fa02e/nvim/plugin/autocommands.lua#L94
             local current_setting = vim.lsp.inlay_hint.is_enabled({
                 bufnr = bufnr
             })
             vim.lsp.inlay_hint.enable(not current_setting, {bufnr = bufnr})
         end, "Toggle inlay [h]int")
+        nmap("<leader>hm", function()
+
+            local cursor_pos = vim.api.nvim_win_get_cursor(0)
+            local function is_after_cursor(hint)
+                return hint.position.line > cursor_pos[1] - 1 or
+                           (hint.position.line == cursor_pos[1] - 1 and
+                               hint.position.character > cursor_pos[2] - 1)
+            end
+
+            local hints = vim.lsp.inlay_hint.get({bufnr = bufnr})
+            -- Find the first object that is after the cursor position
+            for _, hint in ipairs(hints) do
+                if hint.inlay_hint.kind == 1 and
+                    is_after_cursor(hint.inlay_hint) then
+                    local resp = client.request_sync('inlayHint/resolve',
+                                                     hint.inlay_hint, 100, 0)
+                    local resolved_hint = assert(resp and resp.result, resp.err)
+                    if resolved_hint.textEdits ~= nil then
+                        vim.lsp.util.apply_text_edits(resolved_hint.textEdits,
+                                                      bufnr, "utf-8")
+                        vim.api.nvim_win_set_cursor(0, {
+                            hint.inlay_hint.position.line + 1, -- line is 0 based
+                            -- character is 0 based, but we don't +1 on purpose so that it sets at the start of hint
+                            hint.inlay_hint.position.character
+                        })
+                    else
+                        vim.api.nvim_win_set_cursor(0, {
+                            hint.inlay_hint.position.line + 1, -- line is 0 based
+                            hint.inlay_hint.position.character + 1 -- character is 0 based
+                        })
+                        -- this can happen if the code would be invalid (e.g. hint is a variable declared in for loop)
+                        vim.notify_once("Inlay hint missing text edit info",
+                                        vim.log.levels.WARN)
+                    end
+
+                    break
+                end
+            end
+        end, "Inlay [h]int magic")
+
     end
 
     vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
