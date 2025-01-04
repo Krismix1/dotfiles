@@ -34,7 +34,6 @@ alias \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
-	z="zathura" \
 	lg="lazygit" \
 	gg="git log --all --decorate --oneline --graph" \
 	ga="git add" \
