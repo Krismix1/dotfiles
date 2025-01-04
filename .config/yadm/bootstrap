@@ -96,6 +96,7 @@ sudo pacman -S --noconfirm --needed \
 	zathura \
 	zathura-pdf-mupdf \
 	zip \
+	zoxide \
 	zsh \
 	zsh-syntax-highlighting
 

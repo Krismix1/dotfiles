@@ -98,6 +98,7 @@ plugins=(
   vi-mode
   fzf
   terraform
+  zoxide
 )
 
 source $ZSH/oh-my-zsh.sh
