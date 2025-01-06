@@ -52,7 +52,7 @@ local live_grep_with_glob = function (opts)
 
             return  vim.iter({
                 args,
-                {"--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"}
+                {"--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden"}
             }):flatten():totable()
         end,
         entry_maker = make_entry.gen_from_vimgrep(opts),
