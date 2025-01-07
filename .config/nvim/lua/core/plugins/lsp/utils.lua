@@ -72,7 +72,7 @@ function M.keybindings(bufnr, client)
             })
             vim.lsp.inlay_hint.enable(not current_setting, {bufnr = bufnr})
         end, "Toggle inlay [h]int")
-        nmap("<leader>hm", function()
+        nmap("<leader>ha", function()
 
             local cursor_pos = vim.api.nvim_win_get_cursor(0)
             local function is_after_cursor(hint)
@@ -110,7 +110,7 @@ function M.keybindings(bufnr, client)
                     break
                 end
             end
-        end, "Inlay [h]int magic")
+        end, "[A]pply inlay [h]int")
 
     end
 
