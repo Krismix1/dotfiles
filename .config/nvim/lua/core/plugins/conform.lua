@@ -16,7 +16,24 @@ local M = {
     "stevearc/conform.nvim",
     config = function()
         local utils = require("core.utils")
+        local conform_utils = require("conform.util")
         require("conform").setup({
+            formatters = {
+                isort = {
+                    command = conform_utils.find_executable({
+                        "./.venv/bin/isort"
+                    }, "isort")
+                },
+                black = {
+                    command = conform_utils.find_executable({
+                        "./.venv/bin/black"
+                    }, "black")
+                },
+                ruff_fix = {
+                    command = conform_utils.find_executable(
+                        {"./.venv/bin/ruff"}, "ruff")
+                }
+            },
             formatters_by_ft = {
                 lua = function(bufnr)
                     return {first(bufnr, "lua-format", "stylua")}
@@ -37,7 +54,7 @@ local M = {
                     return {first(bufnr, "prettierd", "prettier")}
                 end,
                 html = function(bufnr)
-                    return first(bufnr, "prettierd", "prettier")
+                    return {first(bufnr, "prettierd", "prettier")}
                 end,
                 angular = function(bufnr)
                     return {first(bufnr, "prettierd", "prettier")}
