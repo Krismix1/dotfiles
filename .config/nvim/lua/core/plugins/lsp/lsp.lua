@@ -25,9 +25,7 @@ local servers = {
 
 -- this needs to be called before setting up lsps
 require("mason").setup({})
-require("mason-lspconfig").setup({
-    automatic_installation = true,
-})
+require("mason-lspconfig").setup({automatic_installation = true})
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
@@ -37,11 +35,12 @@ for _, lsp in ipairs(servers) do
         end,
         before_init = function(_, config)
             if lsp == "pyright" then
-                config.settings.python.pythonPath = lsp_utils.get_python_path(config.root_dir)
+                config.settings.python.pythonPath =
+                    lsp_utils.get_python_path(config.root_dir)
             end
         end,
         capabilities = capabilities,
-        flags = { debounce_text_changes = 150 },
+        flags = {debounce_text_changes = 150}
     })
 end
 
@@ -51,14 +50,17 @@ nvim_lsp.angularls.setup({
         lsp_utils.keybindings(bufnr, client)
     end,
     root_dir = util.root_pattern("angular.json", "project.json"), -- This is for monorepo's
-    filetypes = { "angular.html", "typescript" },
+    filetypes = {"angular.html", "typescript"},
     capabilities = capabilities,
-    flags = { debounce_text_changes = 150 },
+    flags = {debounce_text_changes = 150}
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config({
     -- Enable underline, use default values
+    signs = true,
     underline = true,
-    virtual_text = { spacing = 0, prefix = "■" },
+    virtual_text = {spacing = 0, prefix = "■"},
     update_in_insert = false,
+    -- show the source of the diagnostic (looking at you pyright...)
+    float = {source = true} -- or 'if_many', check `:help vim.diagnostic.config`
 })
