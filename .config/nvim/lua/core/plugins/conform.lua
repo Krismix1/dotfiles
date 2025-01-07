@@ -72,7 +72,8 @@ local M = {
                 rust = {"rustfmt"},
                 xml = {"xmllint"},
                 json = {"jq"},
-                sql = {"sql_formatter"}
+                sql = {"sql_formatter"},
+                terraform = {"terraform_fmt"}
             }
         })
     end
