@@ -75,6 +75,10 @@ local show_unnecessary_hints = true
 local function custom_publish_diagnostics(_, result, ctx)
     if not result or not result.diagnostics then return end
 
+    -- https://github.com/microsoft/pyright/issues/1118#issuecomment-1859280421
+    -- Pyright doesn't provide a config to remove those for the LSP,
+    -- but at the same time, the same hints are used to show "unused" code in different colors
+    -- so it's nice to be able to show/hide them at runtime
     if not show_unnecessary_hints then
         -- filter out diagnostics with the "Unnecessary" tag
         local filtered_diagnostics = {}
