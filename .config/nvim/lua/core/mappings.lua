@@ -68,8 +68,8 @@ vim.keymap.set("n", "<leader>sg", live_grep_with_glob, { desc = "[S]earch by [G]
 vim.keymap.set("n", "<leader>sd", telescope_builtins.diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic issue" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic issue" })
+vim.keymap.set("n", "[d", function () vim.diagnostic.jump({count=-1, float=true}) end, { desc = "Go to previous diagnostic issue" })
+vim.keymap.set("n", "]d", function () vim.diagnostic.jump({count=1, float=true}) end, { desc = "Go to next diagnostic issue" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show [e]rrors in floating window" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Add buffer diagnostics to location list" })
 
