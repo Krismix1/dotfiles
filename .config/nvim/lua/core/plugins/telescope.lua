@@ -21,10 +21,12 @@ local M = {
                     i = {
                         ["<C-v>"] = actions.select_vertical,
                         ["<C-h>"] = actions.select_horizontal,
-                        ["<C-->"] = actions.select_horizontal,
-                        ["<C-\\>"] = actions.select_vertical,
+                        ["<C-l>"] = actions.send_to_loclist,
                         ["<C-u>"] = false,
                         ["<C-d>"] = false,
+                    },
+                    n = {
+                        q = actions.close,
                     },
                 },
                 file_ignore_patterns = { ".git/" },
