@@ -11,14 +11,7 @@ local telescope_builtins = require("telescope.builtin")
 vim.keymap.set("n", "<leader>?", telescope_builtins.oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader><space>", telescope_builtins.buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>cm", telescope_builtins.keymaps, { desc = "[C]ommand [M]enu" })
-vim.keymap.set("n", "<leader>/", function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    telescope_builtins.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 10,
-        previewer = false,
-    }))
-end, { desc = "[/] Fuzzily search in current buffer" })
-
+vim.keymap.set("n", "<leader>/", telescope_builtins.current_buffer_fuzzy_find , { desc = "[/] Fuzzily search in current buffer" })
 vim.keymap.set("n", "<C-p>", function()
     telescope_builtins.find_files({ hidden = true })
 end, { desc = "[S]earch [F]iles" })
