@@ -17,6 +17,20 @@ local M = {
         end
         telescope.setup({
             defaults = {
+                path_display = {'truncate'},
+                layout_strategy = 'vertical',
+                layout_config = {
+                    vertical = {
+                        width = function(_, max_columns)
+                            return math.floor(max_columns * 0.99)
+                        end,
+                        height = function(_, _, max_lines)
+                            return math.floor(max_lines * 0.99)
+                        end,
+                        prompt_position = 'bottom',
+                        preview_cutoff = 0
+                    }
+                },
                 mappings = {
                     i = {
                         ["<C-v>"] = actions.select_vertical,
