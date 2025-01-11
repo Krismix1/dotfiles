@@ -66,6 +66,10 @@ vim.keymap.set("n", "<leader>sw", telescope_builtins.grep_string, { desc = "[S]e
 -- vim.keymap.set("n", "<leader>sg", telescope_builtins.live_grep, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sg", live_grep_with_glob, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sd", telescope_builtins.diagnostics, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set("n", "<leader>slp", function ()
+    telescope_builtins.find_files{
+        cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+    } end, { desc = "[S]earch [L]ua [P]ackages" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", function () vim.diagnostic.jump({count=-1, float=true}) end, { desc = "Go to previous diagnostic issue" })
