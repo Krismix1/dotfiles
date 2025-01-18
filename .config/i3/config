@@ -56,6 +56,9 @@ for_window [instance="dropdown_*"] move position center
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
 
+for_window [class="Spotify"] move container to workspace $ws9
+for_window [class="Microsoft-edge"] move container to workspace $ws8
+
 exec_always --no-startup-id launch_polybar
 
 # #---Basic Bindings---# #
