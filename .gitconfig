@@ -36,3 +36,10 @@
 	wta = worktree add
 	wtab = "!bash -ec 'if (( $# == 0)); then echo >&2 git wtab: 1 parameter expected; exit 2; fi; branch=$2; git worktree add \"$1\" $(git rev-parse ${branch:-master}) -b \"$1\"'"
 	wtar = "!bash -ec 'if (( $# != 1)); then echo >&2 git wtar: 1 parameter expected; exit 2; fi; git worktree add --guess-remote --track \"$1\" \"$1\"'"
+
+[includeIf "gitdir:~/projects/languagewire/**"]
+    path = ~/.gitconfig-languagewire
+[branch]
+	sort = -committerdate
+[diff "exif"]
+	textconv = exiftool
