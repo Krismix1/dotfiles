@@ -57,6 +57,7 @@ sudo pacman -S --noconfirm --needed \
 	noto-fonts-cjk \
 	ntfs-3g \
 	openssh \
+	perl-image-exiftool \
 	picom \
 	pulseaudio-alsa \
 	pulsemixer \
